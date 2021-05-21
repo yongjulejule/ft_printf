@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/21 17:42:03 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/05/21 19:36:04 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_lidx
 	struct s_opts	opts;
 }				t_lidx;
 int	parsing(char *formet, t_lidx **strs);
-
+int	ft_printf(const char *formet, ...);
 void	check_specifier(t_lidx *str);
 void	check_n_opt(t_lidx *str);
 

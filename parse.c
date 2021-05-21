@@ -6,13 +6,40 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/21 17:45:08 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/05/21 19:34:35 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int		get_flags(t_lidx **str)
+static	int	split_lst(t_lidx **str)
+{
+	char	*backup;
+	t_lidx	*newnode;
+	t_lidx	*cur;
+
+	cur = *str;
+	while (1)
+	{
+		backup = ft_substr((cur->txt), cur->opts.specifier + 1, ft_strlen(cur->txt));
+		if (!backup)
+			return (ERROR_FLAG);
+		newnode = ft_lidxnew(backup, IS_CHRS);
+		if (!newnode)
+		{	
+			free(backup);
+			return (ERROR_FLAG);
+		}
+		cur->txt[cur->opts.specifier + 1] = '\0';
+		newnode->next = cur->next;
+		cur->next = newnode;
+		cur = newnode->next;
+		if (!cur)
+			return (SUCCESS_FLAG);
+	}
+}
+
+static	int	get_flags(t_lidx **str)
 {
 	t_lidx *tmp;
 
@@ -22,7 +49,8 @@ static	int		get_flags(t_lidx **str)
 		check_n_opt(tmp);
 		tmp = (tmp)->next;
 	}
-	return 0;
+	if (!split_lst(str))
+		return (ERROR_FLAG);
 }
 
 static	int		free_splited(char **line)

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:25:28 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/21 16:18:59 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/05/21 19:34:57 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,4 @@ int		ft_printf(const char *formet , ...)
 	arg->next;
 		va_start(ap, formet);
 */	return (1);
-}
-
-#include <stdio.h>
-int main()
-{
-	ft_printf("really%2$-+0 *.123dbc");
-	printf("%c",(char)-200);
 }
