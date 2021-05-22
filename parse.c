@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/21 19:34:35 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/05/22 11:34:08 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	split_lst(t_lidx **str)
+static	int		split_lst(t_lidx **str)
 {
 	char	*backup;
 	t_lidx	*newnode;
@@ -21,12 +21,13 @@ static	int	split_lst(t_lidx **str)
 	cur = *str;
 	while (1)
 	{
-		backup = ft_substr((cur->txt), cur->opts.specifier + 1, ft_strlen(cur->txt));
+		backup = ft_substr((cur->txt), cur->opts.specifier + 1,
+				ft_strlen(cur->txt));
 		if (!backup)
 			return (ERROR_FLAG);
 		newnode = ft_lidxnew(backup, IS_CHRS);
 		if (!newnode)
-		{	
+		{
 			free(backup);
 			return (ERROR_FLAG);
 		}
@@ -39,7 +40,7 @@ static	int	split_lst(t_lidx **str)
 	}
 }
 
-static	int	get_flags(t_lidx **str)
+static	int		get_flags(t_lidx **str)
 {
 	t_lidx *tmp;
 
@@ -51,9 +52,10 @@ static	int	get_flags(t_lidx **str)
 	}
 	if (!split_lst(str))
 		return (ERROR_FLAG);
+	return (SUCCESS_FLAG);
 }
 
-static	int		free_splited(char **line)
+static	void	free_splited(char **line)
 {
 	int	idx;
 
@@ -65,7 +67,6 @@ static	int		free_splited(char **line)
 	}
 	free(*(line + idx));
 	free(line);
-	return (ERROR_FLAG);
 }
 
 int				parsing(char *formet, t_lidx **strs)
@@ -75,7 +76,7 @@ int				parsing(char *formet, t_lidx **strs)
 
 	line = ft_split(formet, '%');
 	if (!line)
-		return (free_splited(line));
+		return (ERROR_FLAG);
 	(*strs) = ft_lidxnew(*line, IS_CHRS);
 	if (*formet == '%')
 		(*strs)->order = 0;
@@ -86,6 +87,7 @@ int				parsing(char *formet, t_lidx **strs)
 		idx++;
 	}
 	free_splited(line);
-	get_flags(strs);
-	return (ERROR_FLAG);
+	if (!get_flags(strs))
+		return (ERROR_FLAG);
+	return (SUCCESS_FLAG);
 }

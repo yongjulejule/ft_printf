@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/21 19:36:04 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/05/22 11:08:14 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ void	check_n_opt(t_lidx *str);
 ** handle lists
 */
 
-int				ft_lidxsize(t_lidx *lst);
 void			ft_lidxadd_back(t_lidx **lst, t_lidx *newnode);
 void			ft_lidxclear(t_lidx **lst, void (*del)(void*));
 void			ft_lidxdelone(t_lidx *lst, void (*del)(void*));
 t_lidx			*ft_lidxnew(void *txt, int order);
-int				ft_lidxsize(t_lidx *lst);
 t_lidx	*ft_lidxlast(t_lidx *lst);
 
 #endif
