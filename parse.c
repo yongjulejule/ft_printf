@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/22 11:34:08 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/10 12:19:34 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static	int		get_flags(t_lidx **str)
 	tmp = *str;
 	while (tmp)
 	{
-		check_n_opt(tmp);
+		check_flags(tmp);
 		tmp = (tmp)->next;
 	}
 	if (!split_lst(str))

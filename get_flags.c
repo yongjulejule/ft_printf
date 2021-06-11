@@ -6,11 +6,33 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/22 11:32:34 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/10 12:47:47 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static	void	check_specifier(t_lidx *str)
+{
+	int idx;
+	int jdx;
+
+	jdx = 0;
+	idx = str->opts.length;
+	idx++;
+	while (jdx < 12)
+	{
+		if (str->txt[idx] == "cspdiuxXfge%"[jdx])
+		{
+			str->opts.specifier = idx;
+			return ;
+		}
+		jdx++;
+	}
+	idx--;
+	str->opts.specifier = idx;
+	str->order = IS_CHRS;
+}
 
 static	void	check_length(t_lidx *str)
 {
@@ -55,7 +77,7 @@ static	void	check_precision(t_lidx *str)
 static	void	check_width(t_lidx *str)
 {
 	int idx;
-
+	
 	idx = str->opts.flags;
 	idx++;
 	if (str->txt[idx] > '0' && str->txt[idx] <= '9')
@@ -68,12 +90,11 @@ static	void	check_width(t_lidx *str)
 	check_precision(str);
 }
 
-static	void	check_flags(t_lidx *str)
+void	check_flags(t_lidx *str)
 {
 	int idx;
 
-	idx = str->opts.n_opt;
-	idx++;
+	idx = 0;
 	while (str->txt[idx] == '-'
 			|| str->txt[idx] == '+'
 			|| str->txt[idx] == ' '
@@ -82,16 +103,4 @@ static	void	check_flags(t_lidx *str)
 	idx--;
 	str->opts.flags = idx;
 	check_width(str);
-}
-
-void			check_n_opt(t_lidx *str)
-{
-	int idx;
-
-	idx = 0;
-	while (ft_isdigit(str->txt[idx]) && str->txt[idx] != '\0')
-		idx++;
-	if (str->txt[idx] == '$')
-		str->opts.n_opt = idx;
-	check_flags(str);
 }

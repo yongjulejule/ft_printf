@@ -10,7 +10,7 @@ int main()
 {
 	t_lidx test;
 
-//	ft_printf("really%2$-+0 *.123dbcsdsdlkj%123$  000123.432fasdbfd%c");
+	ft_printf("really%-+0 *.123dbcsdsdlkj%123$  000123.432fasdbfd%c");
 	printf("%c",(char)-200);
 
 	testfunction(&test);
