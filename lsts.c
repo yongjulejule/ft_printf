@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 11:07:30 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/10 12:34:45 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/11 15:35:57 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ t_lidx	*ft_lidxnew(void *txt, int order)
 	newlst->opts.width = 0;
 	newlst->opts.precision = 0;
 	newlst->opts.length = 0;
-	newlst->opts.specifier = 0;
+	newlst->opts.spec = 0;
 	return (newlst);
 }

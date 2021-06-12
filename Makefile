@@ -5,9 +5,9 @@ LIB = libft.a
 LIBDIR = libft
 SRCS = ft_printf.c\
 	   get_flags.c\
-	   get_flags2.c\
 	   lsts.c\
-	   parse.c
+	   parse.c\
+	   go_print.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -16,7 +16,7 @@ BONUS_SRCS = ${SRCS}\
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 .PHONY: all
-all: $(NAME)
+all: $(NAME) clean
 
 $(NAME) : $(OBJS) $(LIB)
 	ar rc $@ $(OBJS) $(LIBDIR)/$(LIB)

@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/10 12:47:47 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/11 17:32:03 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	void	check_specifier(t_lidx *str)
+static	void	check_spec(t_lidx *str)
 {
 	int idx;
 	int jdx;
@@ -22,15 +22,15 @@ static	void	check_specifier(t_lidx *str)
 	idx++;
 	while (jdx < 12)
 	{
-		if (str->txt[idx] == "cspdiuxXfge%"[jdx])
+		if (str->txt[idx] == "cspdiuxXnfge%"[jdx])
 		{
-			str->opts.specifier = idx;
+			str->opts.spec = idx;
 			return ;
 		}
 		jdx++;
 	}
 	idx--;
-	str->opts.specifier = idx;
+	str->opts.spec = idx;
 	str->order = IS_CHRS;
 }
 
@@ -54,7 +54,7 @@ static	void	check_length(t_lidx *str)
 	}
 	idx--;
 	str->opts.length = idx;
-	check_specifier(str);
+	check_spec(str);
 }
 
 static	void	check_precision(t_lidx *str)

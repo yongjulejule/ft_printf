@@ -19,6 +19,13 @@ BONUS_SRCS	Makefile	/^BONUS_SRCS = ${SRCS}\\$/;"	m
 BONUS_SRCS	libft/Makefile	/^BONUS_SRCS = ${SRCS}\\$/;"	m
 CC	Makefile	/^CC = gcc$/;"	m
 CC	libft/Makefile	/^CC = gcc$/;"	m
+CFBundleDevelopmentRegion	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundleDevelopmentRegion<\/key>$/;"	k
+CFBundleIdentifier	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundleIdentifier<\/key>$/;"	k
+CFBundleInfoDictionaryVersion	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundleInfoDictionaryVersion<\/key>$/;"	k
+CFBundlePackageType	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundlePackageType<\/key>$/;"	k
+CFBundleShortVersionString	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundleShortVersionString<\/key>$/;"	k
+CFBundleSignature	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundleSignature<\/key>$/;"	k
+CFBundleVersion	a.out.dSYM/Contents/Info.plist	/^		<key>CFBundleVersion<\/key>$/;"	k
 CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 ERROR_FLAG	ft_printf.h	/^# define ERROR_FLAG /;"	d
@@ -36,17 +43,16 @@ OBJS	libft/Makefile	/^OBJS = ${SRCS:.c=.o}$/;"	m
 SRCS	Makefile	/^SRCS = ft_printf.c\\$/;"	m
 SRCS	libft/Makefile	/^SRCS = ft_memset.c\\$/;"	m
 SUCCESS_FLAG	ft_printf.h	/^# define SUCCESS_FLAG /;"	d
-all	Makefile	/^all: $(NAME)$/;"	t
+all	Makefile	/^all: $(NAME) clean$/;"	t
 all	libft/Makefile	/^all: $(NAME)$/;"	t
 alloc_mem	libft/ft_split.c	/^static	char	**alloc_mem(char **tmp, int start, int i, int idx)$/;"	f	typeref:typename:char **	file:
 bonus	Makefile	/^bonus: $(BONUS_OBJS)$/;"	t
 bonus	libft/Makefile	/^bonus: $(BONUS_OBJS)$/;"	t
 check_chr	libft/ft_split.c	/^static int		check_chr(char c, char ch)$/;"	f	typeref:typename:int	file:
-check_flags	get_flags.c	/^static	void	check_flags(t_lidx *str)$/;"	f	typeref:typename:void	file:
+check_flags	get_flags.c	/^void	check_flags(t_lidx *str)$/;"	f	typeref:typename:void
 check_length	get_flags.c	/^static	void	check_length(t_lidx *str)$/;"	f	typeref:typename:void	file:
-check_n_opt	get_flags.c	/^void			check_n_opt(t_lidx *str)$/;"	f	typeref:typename:void
 check_precision	get_flags.c	/^static	void	check_precision(t_lidx *str)$/;"	f	typeref:typename:void	file:
-check_specifier	get_flags2.c	/^void	check_specifier(t_lidx *str)$/;"	f	typeref:typename:void
+check_spec	get_flags.c	/^static	void	check_spec(t_lidx *str)$/;"	f	typeref:typename:void	file:
 check_width	get_flags.c	/^static	void	check_width(t_lidx *str)$/;"	f	typeref:typename:void	file:
 clean	Makefile	/^clean:$/;"	t
 clean	libft/Makefile	/^clean:$/;"	t
@@ -65,20 +71,11 @@ ft_isascii	libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
 ft_isdigit	libft/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
 ft_isprint	libft/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
 ft_itoa	libft/ft_itoa.c	/^char			*ft_itoa(int n)$/;"	f	typeref:typename:char *
-ft_lidxadd_back	libft/ft_lidxadd_back_bonus.c	/^void	ft_lidxadd_back(t_lidx **lst, t_lidx *new)$/;"	f	typeref:typename:void
 ft_lidxadd_back	lsts.c	/^void	ft_lidxadd_back(t_lidx **lst, t_lidx *new)$/;"	f	typeref:typename:void
-ft_lidxadd_front	libft/ft_lidxadd_front_bonus.c	/^void	ft_lidxadd_front(t_lidx **lst, t_lidx *new)$/;"	f	typeref:typename:void
-ft_lidxclear	libft/ft_lidxclear_bonus.c	/^void	ft_lidxclear(t_lidx **lst, void (*del)(void*))$/;"	f	typeref:typename:void
 ft_lidxclear	lsts.c	/^void	ft_lidxclear(t_lidx **lst, void (*del)(void*))$/;"	f	typeref:typename:void
-ft_lidxdelone	libft/ft_lidxdelone_bonus.c	/^void	ft_lidxdelone(t_lidx *lst, void (*del)(void*))$/;"	f	typeref:typename:void
 ft_lidxdelone	lsts.c	/^void	ft_lidxdelone(t_lidx *lst, void (*del)(void*))$/;"	f	typeref:typename:void
-ft_lidxiter	libft/ft_lidxiter_bonus.c	/^void	ft_lidxiter(t_lidx *lst, void (*f)(void *))$/;"	f	typeref:typename:void
-ft_lidxlast	libft/ft_lidxlast_bonus.c	/^t_lidx	*ft_lidxlast(t_lidx *lst)$/;"	f	typeref:typename:t_lidx *
 ft_lidxlast	lsts.c	/^t_lidx	*ft_lidxlast(t_lidx *lst)$/;"	f	typeref:typename:t_lidx *
-ft_lidxmap	libft/ft_lidxmap_bonus.c	/^t_lidx	*ft_lidxmap(t_lidx *lst, void *(*f)(void *), void (*del)(void*))$/;"	f	typeref:typename:t_lidx *
-ft_lidxnew	libft/ft_lidxnew_bonus.c	/^t_lidx	*ft_lidxnew(void *txt, int order)$/;"	f	typeref:typename:t_lidx *
 ft_lidxnew	lsts.c	/^t_lidx	*ft_lidxnew(void *txt, int order)$/;"	f	typeref:typename:t_lidx *
-ft_lidxsize	libft/ft_lidxsize_bonus.c	/^int	ft_lidxsize(t_lidx *lst)$/;"	f	typeref:typename:int
 ft_lstadd_back	libft/ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
 ft_lstadd_front	libft/ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
 ft_lstclear	libft/ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f	typeref:typename:void
@@ -117,13 +114,13 @@ ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
 get_digit	libft/ft_itoa.c	/^static	int		get_digit(int n)$/;"	f	typeref:typename:int	file:
 get_flags	parse.c	/^static	int		get_flags(t_lidx **str)$/;"	f	typeref:typename:int	file:
 get_size	libft/ft_split.c	/^static int		get_size(char *str, char c)$/;"	f	typeref:typename:int	file:
+go_print	go_print.c	/^int go_print(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 go_to_digit	libft/ft_atoi.c	/^char	*go_to_digit(char *str, int *sign)$/;"	f	typeref:typename:char *
 is_zero	libft/ft_itoa.c	/^static	char	*is_zero(void)$/;"	f	typeref:typename:char *	file:
 length	ft_printf.h	/^	int length;$/;"	m	struct:s_opts	typeref:typename:int
 main	main.c	/^int main()$/;"	f	typeref:typename:int
 make_nbr	libft/ft_putnbr_fd.c	/^static void	make_nbr(int n, int fd)$/;"	f	typeref:typename:void	file:
 max_len	libft/ft_substr.c	/^static	size_t	max_len(size_t len1, size_t len2)$/;"	f	typeref:typename:size_t	file:
-n_opt	ft_printf.h	/^	int	n_opt;$/;"	m	struct:s_opts	typeref:typename:int
 next	ft_printf.h	/^	struct s_lidx	*next;$/;"	m	struct:s_lidx	typeref:struct:s_lidx *
 next	libft/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 opts	ft_printf.h	/^	struct s_opts	opts;$/;"	m	struct:s_lidx	typeref:struct:s_opts
@@ -135,12 +132,11 @@ re	libft/Makefile	/^re: fclean all$/;"	t
 s_lidx	ft_printf.h	/^typedef struct	s_lidx$/;"	s
 s_list	libft/libft.h	/^typedef struct	s_list$/;"	s
 s_opts	ft_printf.h	/^typedef struct	s_opts$/;"	s
-specifier	ft_printf.h	/^	int specifier;$/;"	m	struct:s_opts	typeref:typename:int
+spec	ft_printf.h	/^	int spec;$/;"	m	struct:s_opts	typeref:typename:int
 split_lst	parse.c	/^static	int		split_lst(t_lidx **str)$/;"	f	typeref:typename:int	file:
 t_lidx	ft_printf.h	/^}				t_lidx;$/;"	t	typeref:struct:s_lidx
 t_list	libft/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
 t_opts	ft_printf.h	/^}				t_opts;$/;"	t	typeref:struct:s_opts
-testfunction	main.c	/^void testfunction(t_lidx *test)$/;"	f	typeref:typename:void
 to_string	libft/ft_itoa.c	/^static void		to_string(int n, int cnt, char *str)$/;"	f	typeref:typename:void	file:
 txt	ft_printf.h	/^	char			*txt;$/;"	m	struct:s_lidx	typeref:typename:char *
 width	ft_printf.h	/^	int	width;$/;"	m	struct:s_opts	typeref:typename:int

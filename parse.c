@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/10 12:19:34 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/11 22:47:58 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static	int		split_lst(t_lidx **str)
 	cur = *str;
 	while (1)
 	{
-		backup = ft_substr((cur->txt), cur->opts.specifier + 1,
+		backup = ft_substr((cur->txt), cur->opts.spec + 1,
 				ft_strlen(cur->txt));
 		if (!backup)
 			return (ERROR_FLAG);
@@ -31,7 +31,7 @@ static	int		split_lst(t_lidx **str)
 			free(backup);
 			return (ERROR_FLAG);
 		}
-		cur->txt[cur->opts.specifier + 1] = '\0';
+		cur->txt[cur->opts.spec + 1] = '\0';
 		newnode->next = cur->next;
 		cur->next = newnode;
 		cur = newnode->next;
