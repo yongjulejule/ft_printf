@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_chars.c                                     :+:      :+:    :+:   */
+/*   ft_print_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 03:52:28 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/13 14:46:10 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/13 14:47:12 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf_chrs(t_lidx *strs)
+void	ft_print_width(t_lidx *strs, char c, int len)
 {
-	
+	int	idx;
+
+	idx = 0;
+	while (idx < len)
+	{
+		ft_putchar_fd(c, 0);
+		idx++;
+	}
+	strs->opts.width = len;
 }

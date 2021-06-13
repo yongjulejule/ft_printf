@@ -5,14 +5,18 @@
 int main()
 {
 	int i = 10;
-	ft_printf("ab%%%%%%%%%%cas|%s|글 자|%s|글 자|%s|\n\n\n",\
-			'H', "Hello", "\t", "world!");
+	ft_printf("|%0*.*s|\n", 100, 5, "hello printf");
+//	ft_printf("ab%%%%%%%%%%cas|%s|글 자|%s|글 자|%s|\n\n\n",\
+//			'H', "Hello", "\t", "world!");
 //	ft_printf("really%-+0 *.123dbcsd%sdlkj%  000123.432dasdbfd%c\n", 10, "hello", 10, 'c');
 	printf("==============decimal check==================\n");
 	printf("%01d\n", -10);
 	printf("%- +.100d\n", 10);
 	printf("%-d\n", 10);
-	printf("%#100.3d\n", 10);
+	printf("|%*.*d|\n",15, 0, 10);
+	printf("|%*.*d|\n", -15, 0, 10);
+	printf("|%*.*d|\n",15, -1, 10);
+	printf("|%*.*d|\n", -15, -1, 10);
 	printf("% d\n", 10);
 	printf("u opt is |%100uds|\n", -1);
 	printf("|%100ds|\n", 100);
@@ -23,7 +27,7 @@ int main()
 	printf("%-e\n", 4242.42424242424242424242424242424);
 
 	printf("==============string check=====================\n");
-	printf("\n\n%c\n\n",(char)-200);
+	printf("\n\n|%010.10c|\n\n",'a');
  //	printf("|%123*.41s|",  "THis is str",100, "hello");
  //	printf("|%*123.41s|",  "THis is str",100, "hello");
  //	printf("|%12*23.41s|",  "THis is str",100, "hello");
@@ -35,7 +39,7 @@ int main()
 //	printf("ERROR_CASE(FLAG)|%+100ss|\n", "THis is str");
 //	printf("ERROR_CASE(NOT SPECIFIER)|%++++++00++++100Kds|\n", 100);
 
-	printf("|%*.*s|", 9, 300, "hello");
+	printf("|%*.*s|\n", -100, -1, "hello");
 	printf("|%++--++++++++100ds|\n", 100);
 	printf("|%     00100ds|\n", 100);
 	printf("|%++++++00++++100ds|\n", 100);

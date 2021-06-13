@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 02:47:53 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 14:54:07 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ typedef struct	s_lidx
 	struct s_opts	opts;
 }				t_lidx;
 
-int	ft_printf(const char *formet, ...);
+int				ft_printf(const char *formet, ...);
 
 /*
 ** PARSING
 */
 
-int		parsing(char *formet, t_lidx **strs);
-void	check_flags(t_lidx *str);
+int				parsing(char *formet, t_lidx **strs);
+void			check_flags(t_lidx *str);
 
 /*
 ** HANDLE LISTS
@@ -71,7 +71,11 @@ t_lidx			*ft_lidxlast(t_lidx *lst);
 ** PRINTING
 */
 
-int go_print(va_list ap, t_lidx *strs);
-int handle_chrs_flag(t_lidx strs);
+int				go_print(va_list ap, t_lidx *strs);
+int				ft_print_chr(va_list ap, t_lidx *strs);
+int				get_width_len(va_list ap, t_lidx *strs);
+int				get_precision_len(va_list ap, t_lidx *strs);
+void			ft_print_str(va_list ap, t_lidx *strs);
+void			ft_print_width(t_lidx *strs, char c, int len);
 
 #endif
