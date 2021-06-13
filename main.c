@@ -6,6 +6,7 @@ int main()
 {
 	int i = 10;
 	printf("============================!!!MY PRINTF!!!============================\n");
+	printf("============================This is String!============================\n");
 	ft_printf("MY  : |%*.*s|\n", 100, 5, "hello printf");
 	printf("LIB : |%*.*s|\n", 100, 5, "hello printf");
 	ft_printf("MY  : |%*.s|\n", 100, "hello printf");
@@ -20,6 +21,21 @@ int main()
 	printf("LIB : |%0*.*s|\n", 100, 5, "hello printf");
 	ft_printf("MY  : |%--*.*s|\n", 100, 5, "hello printf");
 	printf("LIB : |%--*.*s|\n", 100, 5, "hello printf");
+	printf("============================This is Charactor!=========================\n");
+	ft_printf("MY  : |%*c|\n", 100, 'R');
+	printf("LIB : |%*c|\n", 100, 'R');
+	ft_printf("MY  : |%*.c|\n", 100, 'R');
+	printf("LIB : |%*.c|\n", 100, 'R');
+	ft_printf("MY  : |%*.7c|\n", 100, 'R');
+	printf("LIB : |%*.7c|\n", 100, 'R');
+	ft_printf("MY  : |%*.*c|\n", -100, 5, 'R');
+	printf("LIB : |%*.*c|\n", -100, 5, 'R');
+	ft_printf("MY  : |%*.*c|\n", 100, 0, 'R');
+	printf("LIB : |%*.*c|\n", 100, 0, 'R');
+	ft_printf("MY  : |%0*.*c|\n", 100, 5, 'R');
+	printf("LIB : |%0*.*c|\n", 100, 5, 'R');
+	ft_printf("MY  : |%--*.*c|\n", 100, 5, 'R');
+	printf("LIB : |%--*.*c|\n", 100, 5, 'R');
 //	ft_printf("ab%%%%%%%%%%cas|%s|글 자|%s|글 자|%s|\n\n\n",\
 //			'H', "Hello", "\t", "world!");
 //	ft_printf("really%-+0 *.123dbcsd%sdlkj%  000123.432dasdbfd%c\n", 10, "hello", 10, 'c');

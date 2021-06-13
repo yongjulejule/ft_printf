@@ -6,6 +6,7 @@ LIBDIR = libft
 SRCS = ft_printf.c\
 	   ft_print_str.c\
 	   ft_print_width.c\
+	   ft_print_char.c\
 	   get_flags.c\
 	   get_asterisk_info.c\
 	   go_print.c\

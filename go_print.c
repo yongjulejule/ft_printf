@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:22:43 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 14:50:00 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 16:57:43 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static	int	print_chrs(va_list ap, t_lidx *strs)
 	else
 	{
 		if (strs->txt[strs->opts.spec] == 'c')
-			ft_putchar_fd(va_arg(ap, int), 1);
+			ft_print_char(ap, strs);
 		else
 			ft_print_str(ap, strs);	
 	}
