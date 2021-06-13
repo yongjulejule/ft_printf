@@ -41,7 +41,7 @@ int main()
 //	ft_printf("really%-+0 *.123dbcsd%sdlkj%  000123.432dasdbfd%c\n", 10, "hello", 10, 'c');
 	printf("==============decimal check==================\n");
 	printf("%01d\n", -10);
-	printf("%- +.100d\n", 10);
+	printf("|%-+30.10d|\n", 10);
 	printf("%-d\n", 10);
 	printf("|%*.*d|\n",15, 0, 10);
 	printf("|%*.*d|\n", -15, 0, 10);
