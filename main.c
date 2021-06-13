@@ -5,7 +5,21 @@
 int main()
 {
 	int i = 10;
-	ft_printf("|%0*.*s|\n", 100, 5, "hello printf");
+	printf("============================!!!MY PRINTF!!!============================\n");
+	ft_printf("MY  : |%*.*s|\n", 100, 5, "hello printf");
+	printf("LIB : |%*.*s|\n", 100, 5, "hello printf");
+	ft_printf("MY  : |%*.s|\n", 100, "hello printf");
+	printf("LIB : |%*.s|\n", 100, "hello printf");
+	ft_printf("MY  : |%*.7s|\n", 100, "hello printf");
+	printf("LIB : |%*.7s|\n", 100, "hello printf");
+	ft_printf("MY  : |%*.*s|\n", -100, 5, "hello printf");
+	printf("LIB : |%*.*s|\n", -100, 5, "hello printf");
+	ft_printf("MY  : |%*.*s|\n", 100, 0, "hello printf");
+	printf("LIB : |%*.*s|\n", 100, 0, "hello printf");
+	ft_printf("MY  : |%0*.*s|\n", 100, 5, "hello printf");
+	printf("LIB : |%0*.*s|\n", 100, 5, "hello printf");
+	ft_printf("MY  : |%--*.*s|\n", 100, 5, "hello printf");
+	printf("LIB : |%--*.*s|\n", 100, 5, "hello printf");
 //	ft_printf("ab%%%%%%%%%%cas|%s|글 자|%s|글 자|%s|\n\n\n",\
 //			'H', "Hello", "\t", "world!");
 //	ft_printf("really%-+0 *.123dbcsd%sdlkj%  000123.432dasdbfd%c\n", 10, "hello", 10, 'c');
