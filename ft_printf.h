@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/11 15:35:20 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 02:47:53 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@
 */
 
 # define IS_ERR -2
-# define IS_CHRS -1
+# define IS_NOT_FLAG -1
 # define IS_FLAGS 1
 # define ERROR_FLAG 0
 # define SUCCESS_FLAG 1
-# define ASTERISK -1
+# define ASTERISK -2
+# define SPECS "diunpxXcs%"
 
 /*
 ** BASIS 
@@ -53,7 +54,7 @@ int	ft_printf(const char *formet, ...);
 ** PARSING
 */
 
-int	parsing(char *formet, t_lidx **strs);
+int		parsing(char *formet, t_lidx **strs);
 void	check_flags(t_lidx *str);
 
 /*
@@ -71,5 +72,6 @@ t_lidx			*ft_lidxlast(t_lidx *lst);
 */
 
 int go_print(va_list ap, t_lidx *strs);
+int handle_chrs_flag(t_lidx strs);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_weak_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 18:13:39 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 05:39:15 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 09:17:51 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static int		get_size(char *str, char c)
 	size = 0;
 	while (*str)
 	{
-		if (!check_chr(*str, c))
-		{
-			size++;
+		size++;
+		if (check_chr(*str, c))
+			str += 1;
+		else
 			while (*str && !check_chr(*str, c))
 				str++;
-		}
 		if (*str != '\0')
 			str++;
 	}
@@ -54,7 +54,7 @@ static	char	**alloc_mem(char **tmp, int start, int i, int idx)
 	return (tmp);
 }
 
-char			**ft_split(char const *s, char c)
+char			**ft_weak_split(char const *s, char c)
 {
 	char	**tmp;
 	int		i;
@@ -68,15 +68,15 @@ char			**ft_split(char const *s, char c)
 		return (NULL);
 	while (*(s + i))
 	{
-		if (!check_chr(*(s + i), c))
-		{
-			start = i;
+		start = i;
+		if (check_chr(*(s + i), c))
+			i += 1;
+		else
 			while (*(s + i) && !check_chr(*(s + i), c))
 				i++;
-			if (!(tmp = alloc_mem(tmp, start, i, idx)))
-				return (NULL);
-			ft_strlcpy(tmp[idx++], (char*)(s + start), i - start + 1);
-		}
+		if (!(tmp = alloc_mem(tmp, start, i, idx)))
+			return (NULL);
+		ft_strlcpy(tmp[idx++], (char*)(s + start), i - start + 1);
 		if (*(s + i) != '\0')
 			i++;
 	}

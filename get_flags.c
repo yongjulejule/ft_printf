@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/11 17:32:03 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 02:36:49 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static	void	check_spec(t_lidx *str)
 	jdx = 0;
 	idx = str->opts.length;
 	idx++;
-	while (jdx < 12)
+	while (jdx < 11)
 	{
-		if (str->txt[idx] == "cspdiuxXnfge%"[jdx])
+		if (str->txt[idx] == SPECS[jdx])
 		{
 			str->opts.spec = idx;
 			return ;
@@ -31,7 +31,7 @@ static	void	check_spec(t_lidx *str)
 	}
 	idx--;
 	str->opts.spec = idx;
-	str->order = IS_CHRS;
+	str->order = IS_NOT_FLAG;
 }
 
 static	void	check_length(t_lidx *str)
@@ -66,8 +66,11 @@ static	void	check_precision(t_lidx *str)
 	if (str->txt[idx] == '.')
 	{
 		idx++;
-		while (ft_isdigit(str->txt[idx]))
+		if (str->txt[idx] == '*')
 			idx++;
+		else
+			while (ft_isdigit(str->txt[idx]))
+				idx++;
 	}
 	idx--;
 	str->opts.precision = idx;
@@ -77,7 +80,7 @@ static	void	check_precision(t_lidx *str)
 static	void	check_width(t_lidx *str)
 {
 	int idx;
-	
+
 	idx = str->opts.flags;
 	idx++;
 	if (str->txt[idx] > '0' && str->txt[idx] <= '9')

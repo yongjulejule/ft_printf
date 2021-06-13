@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/11 22:47:58 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 09:24:18 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ static	int		split_lst(t_lidx **str)
 	cur = *str;
 	while (1)
 	{
-		backup = ft_substr((cur->txt), cur->opts.spec + 1,
-				ft_strlen(cur->txt));
+		backup = ft_substr((cur->txt), cur->opts.spec + 1,\
+							ft_strlen(cur->txt)\
+							);
 		if (!backup)
 			return (ERROR_FLAG);
-		newnode = ft_lidxnew(backup, IS_CHRS);
+		newnode = ft_lidxnew(backup, IS_NOT_FLAG);
 		if (!newnode)
 		{
 			free(backup);
@@ -48,6 +49,7 @@ static	int		get_flags(t_lidx **str)
 	while (tmp)
 	{
 		check_flags(tmp);
+//		update_opts(tmp);
 		tmp = (tmp)->next;
 	}
 	if (!split_lst(str))
@@ -69,16 +71,16 @@ static	void	free_splited(char **line)
 	free(line);
 }
 
-int				parsing(char *formet, t_lidx **strs)
+int				parsing(char *format, t_lidx **strs)
 {
 	char	**line;
 	int		idx;
 
-	line = ft_split(formet, '%');
+	line = ft_weak_split(format, '%');
 	if (!line)
 		return (ERROR_FLAG);
-	(*strs) = ft_lidxnew(*line, IS_CHRS);
-	if (*formet == '%')
+	(*strs) = ft_lidxnew(*line, IS_NOT_FLAG);
+	if (*format == '%')
 		(*strs)->order = 0;
 	idx = 1;
 	while (*(line + idx))

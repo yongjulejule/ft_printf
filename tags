@@ -30,9 +30,9 @@ CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 ERROR_FLAG	ft_printf.h	/^# define ERROR_FLAG /;"	d
 FT_PRINTF_H	ft_printf.h	/^# define FT_PRINTF_H$/;"	d
-IS_CHRS	ft_printf.h	/^# define IS_CHRS /;"	d
 IS_ERR	ft_printf.h	/^# define IS_ERR /;"	d
 IS_FLAGS	ft_printf.h	/^# define IS_FLAGS /;"	d
+IS_NOT_FLAG	ft_printf.h	/^# define IS_NOT_FLAG /;"	d
 LIB	Makefile	/^LIB = libft.a$/;"	m
 LIBDIR	Makefile	/^LIBDIR = libft$/;"	m
 LIBFT_H	libft/libft.h	/^# define LIBFT_H$/;"	d
@@ -40,10 +40,11 @@ NAME	Makefile	/^NAME = libftprintf.a$/;"	m
 NAME	libft/Makefile	/^NAME = libft.a$/;"	m
 OBJS	Makefile	/^OBJS = ${SRCS:.c=.o}$/;"	m
 OBJS	libft/Makefile	/^OBJS = ${SRCS:.c=.o}$/;"	m
+SPECS	ft_printf.h	/^# define SPECS /;"	d
 SRCS	Makefile	/^SRCS = ft_printf.c\\$/;"	m
 SRCS	libft/Makefile	/^SRCS = ft_memset.c\\$/;"	m
 SUCCESS_FLAG	ft_printf.h	/^# define SUCCESS_FLAG /;"	d
-all	Makefile	/^all: $(NAME) clean$/;"	t
+all	Makefile	/^all: $(NAME) #clean$/;"	t
 all	libft/Makefile	/^all: $(NAME)$/;"	t
 alloc_mem	libft/ft_split.c	/^static	char	**alloc_mem(char **tmp, int start, int i, int idx)$/;"	f	typeref:typename:char **	file:
 bonus	Makefile	/^bonus: $(BONUS_OBJS)$/;"	t
@@ -58,6 +59,7 @@ clean	Makefile	/^clean:$/;"	t
 clean	libft/Makefile	/^clean:$/;"	t
 cmpchr	libft/ft_strtrim.c	/^static int	cmpchr(char s, char const *set)$/;"	f	typeref:typename:int	file:
 content	libft/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
+debug	Makefile	/^debug: clean $/;"	t
 fclean	Makefile	/^fclean: clean$/;"	t
 fclean	libft/Makefile	/^fclean: clean$/;"	t
 flags	ft_printf.h	/^	int	flags;$/;"	m	struct:s_opts	typeref:typename:int
@@ -92,6 +94,7 @@ ft_memcpy	libft/ft_memcpy.c	/^void	*ft_memcpy(void *dst, const void *src, size_t
 ft_memmove	libft/ft_memmove.c	/^void	*ft_memmove(void *dst, const void *src, size_t len)$/;"	f	typeref:typename:void *
 ft_memset	libft/ft_memset.c	/^void	*ft_memset(void *b, int c, size_t len)$/;"	f	typeref:typename:void *
 ft_printf	ft_printf.c	/^int		ft_printf(const char *formet, ...)$/;"	f	typeref:typename:int
+ft_printf_chrs	handle_chars.c	/^int ft_printf_chrs(t_lidx *strs)$/;"	f	typeref:typename:int
 ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
 ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
 ft_putnbr_fd	libft/ft_putnbr_fd.c	/^void		ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
@@ -116,6 +119,7 @@ get_flags	parse.c	/^static	int		get_flags(t_lidx **str)$/;"	f	typeref:typename:i
 get_size	libft/ft_split.c	/^static int		get_size(char *str, char c)$/;"	f	typeref:typename:int	file:
 go_print	go_print.c	/^int go_print(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 go_to_digit	libft/ft_atoi.c	/^char	*go_to_digit(char *str, int *sign)$/;"	f	typeref:typename:char *
+handle_spec	go_print.c	/^static	int	handle_spec(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
 is_zero	libft/ft_itoa.c	/^static	char	*is_zero(void)$/;"	f	typeref:typename:char *	file:
 length	ft_printf.h	/^	int length;$/;"	m	struct:s_opts	typeref:typename:int
 main	main.c	/^int main()$/;"	f	typeref:typename:int
@@ -127,6 +131,9 @@ opts	ft_printf.h	/^	struct s_opts	opts;$/;"	m	struct:s_lidx	typeref:struct:s_opt
 order	ft_printf.h	/^	int				order;$/;"	m	struct:s_lidx	typeref:typename:int
 parsing	parse.c	/^int				parsing(char *formet, t_lidx **strs)$/;"	f	typeref:typename:int
 precision	ft_printf.h	/^	int precision;$/;"	m	struct:s_opts	typeref:typename:int
+print_chrs	go_print.c	/^static	int	print_chrs(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
+print_decimal	go_print.c	/^static	int	print_decimal(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
+print_hex	go_print.c	/^static	int	print_hex(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
 re	Makefile	/^re: fclean all$/;"	t
 re	libft/Makefile	/^re: fclean all$/;"	t
 s_lidx	ft_printf.h	/^typedef struct	s_lidx$/;"	s

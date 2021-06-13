@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   handle_chars.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 13:57:20 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/09 09:40:18 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/13 03:52:28 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isalnum(int c)
+int ft_printf_chrs(t_lidx *strs)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
+	
 }

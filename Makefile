@@ -16,7 +16,7 @@ BONUS_SRCS = ${SRCS}\
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 .PHONY: all
-all: $(NAME) clean
+all: $(NAME) #clean
 
 $(NAME) : $(OBJS) $(LIB)
 	ar rc $@ $(OBJS) $(LIBDIR)/$(LIB)
@@ -40,3 +40,5 @@ re: fclean all
 bonus: $(BONUS_OBJS)
 	ar cr $(NAME) $(BONUS_OBJS)
 
+debug: clean 
+	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)

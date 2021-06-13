@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:11:45 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/22 11:09:51 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/13 08:25:48 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
+char			**ft_weak_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);

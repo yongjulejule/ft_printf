@@ -47,7 +47,8 @@ BONUS_SRCS = ${SRCS}\
 			 ft_lstdelone.c\
 			 ft_lstclear.c\
 			 ft_lstiter.c\
-			 ft_lstmap.c
+			 ft_lstmap.c\
+			 ft_weak_split_bonus.c\
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
