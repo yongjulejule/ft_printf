@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_deci.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 13:30:04 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/14 14:01:02 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	precision_in_deci(va_list ap, t_lidx *strs)
+{
+	va_list	cp_ap;
+	int		len;
+	int		tmplen;
+
+	len = get_precision_len(ap, strs);
+	va_copy(cp_ap, ap);
+	tmplen = ft_dgtlen(va_arg(cp_ap, int), 10);
+	if (len < 0 || len > tmplen)
+		len = tmplen;
+	va_end(cp_ap);
+	return (len);
+}
 
 static	void	print_str(va_list ap, t_lidx *strs, int len)
 {
@@ -27,32 +42,13 @@ static	void	print_str(va_list ap, t_lidx *strs, int len)
 	strs->opts.precision = len;
 }
 
-static	int		precision_in_str(va_list ap, t_lidx *strs)
-{
-	va_list	cp_ap;
-	int		len;
-	int		tmplen;
-
-	len = get_precision_len(ap, strs);
-	va_copy(cp_ap, ap);
-	tmplen = ft_strlen(va_arg(cp_ap, char*));
-	if (len < 0 || len > tmplen)
-		len = tmplen;
-	va_end(cp_ap);
-	return (len);
-}
-
-/*
-** print string with flags
-*/
-
-void			ft_print_str(va_list ap, t_lidx *strs)
+void			ft_print_deci(va_list ap, t_lidx *strs)
 {
 	int		precision_len;
 	int		width_len;
 
 	width_len = get_width_len(ap, strs);
-	precision_len = precision_in_str(ap, strs);
+	precision_len = precision_in_deci(ap, strs);
 	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1)) || width_len < 0)
 	{
 		if (width_len < 0)

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:22:43 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 16:57:43 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:32:46 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 static	int	print_decimal(va_list ap, t_lidx *strs)
 {
-	strs->txt[0]='D';
-	ap = 0;
+	if (strs->txt[strs->opts.spec] == 'n')
+		ft_putnbr_fd(-1, 1);
+	else
+	{
+		ft_print_digit(ap, strs);
+	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 16:47:03 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:01:14 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int				get_precision_len(va_list ap, t_lidx *strs);
 void			ft_print_str(va_list ap, t_lidx *strs);
 void			ft_print_width(t_lidx *strs, char c, int len);
 void			ft_print_char(va_list ap, t_lidx *strs);
+void			ft_print_deci(va_list ap, t_lidx *strs);
 
 #endif
