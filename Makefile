@@ -11,9 +11,19 @@ SRCS = ft_printf.c\
 	   ft_print_sign.c\
 	   get_flags.c\
 	   get_asterisk_info.c\
+	   get_nbr_len.c\
 	   go_print.c\
 	   lsts.c\
 	   parse.c\
+	   ft_putnbr_char_fd.c\
+	   ft_putnbr_l_fd.c\
+	   ft_putnbr_ll_fd.c\
+	   ft_putnbr_short_fd.c\
+	   ft_putnbr_uchar_fd.c\
+	   ft_putnbr_ui_fd.c\
+	   ft_putnbr_ul_fd.c\
+	   ft_putnbr_ull_fd.c\
+	   ft_putnbr_ushort_fd.c\
 
 OBJS = ${SRCS:.c=.o}
 

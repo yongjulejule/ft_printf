@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 22:06:06 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 01:51:06 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void		ft_print_sign(va_list ap, t_lidx *strs)
 	va_list cp_ap;
 	int		nbr;
 
+	if (strs->txt[strs->opts.spec] == 'u')
+		return ;
 	va_copy(cp_ap, ap);
 	nbr = va_arg(cp_ap, int);
 	va_end(cp_ap);

@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_ul_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 20:31:31 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:33:35 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/15 02:31:33 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static void	make_nbr(int n, int fd)
+int		ft_dgt_ul_len(t_ul nbr, unsigned int base)
+{
+	int cnt;
+
+	cnt = 0;
+	if (base < 2)
+		return (0);
+	if (nbr < 0)
+		nbr *= -1;
+	while (nbr)
+	{
+		nbr /= base;
+		cnt++;
+	}
+	return (cnt);
+}
+
+static void	make_nbr(t_ul n, int fd)
 {
 	int		digit;
 	char	c;
@@ -28,7 +45,7 @@ static void	make_nbr(int n, int fd)
 	write(fd, &c, 1);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_ul_fd(t_ul n, int fd)
 {
 	if (fd < 0)
 		return ;
@@ -36,10 +53,6 @@ void		ft_putnbr_fd(int n, int fd)
 	{
 		write(fd, "0", 1);
 		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
 	}
 	make_nbr(n, fd);
 }

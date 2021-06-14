@@ -37,6 +37,7 @@ int main()
 	ft_printf("MY  : |%--*.*c|\n", 100, 5, 'R');
 	printf("LIB : |%--*.*c|\n", 100, 5, 'R');
 	printf("============================This is Dedimal!=========================\n");
+	printf("============================is negative!=========================\n");
 	ft_printf("MY  : |%d|\n", -123);
 	printf("LIB : |%d|\n",  -123);
 	ft_printf("MY  : |%.100d|\n", -123);
@@ -55,6 +56,7 @@ int main()
 	printf("LIB : |%0*.*d|\n", 100, 5, -123);
 	ft_printf("MY  : |%--*.*d|\n", 100, 5, -123);
 	printf("LIB : |%--*.*d|\n", 100, 5, -123);
+	printf("============================is positive!=========================\n");
 	ft_printf("MY  : |%d|\n", 4242);
 	printf("LIB : |%d|\n",  4242);
 	ft_printf("MY  : |%+0.100d|\n", 4242);
@@ -73,6 +75,45 @@ int main()
 	printf("LIB : |% 0*.*d|\n", 100, 5, 4242);
 	ft_printf("MY  : |%+--*.*d|\n", 100, 5, 4242);
 	printf("LIB : |%+--*.*d|\n", 100, 5, 4242);
+	printf("============================This is Unsigned Decimal!=========================\n");
+	printf("============================is negative!=========================\n");
+	ft_printf("MY  : |%u|\n", -123);
+	printf("LIB : |%u|\n",  -123);
+	ft_printf("MY  : |%.100u|\n", -123);
+	printf("LIB : |%.100u|\n",  -123);
+	ft_printf("MY  : |%*u|\n", 100, -123);
+	printf("LIB : |%*u|\n", 100, -123);
+	ft_printf("MY  : |%0*u|\n", 100, -123);
+	printf("LIB : |%0*u|\n", 100, -123);
+	ft_printf("MY  : |%*.7u|\n", 100, -123);
+	printf("LIB : |%*.7u|\n", 100, -123);
+	ft_printf("MY  : |%0*.*u|\n", -100, 5, -123);
+	printf("LIB : |%0*.*u|\n", -100, 5, -123);
+	ft_printf("MY  : |%*.*u|\n", 100, 0, -123);
+	printf("LIB : |%*.*u|\n", 100, 0, -123);
+	ft_printf("MY  : |%0*.*u|\n", 100, 5, -123);
+	printf("LIB : |%0*.*u|\n", 100, 5, -123);
+	ft_printf("MY  : |%--*.*u|\n", 100, 5, -123);
+	printf("LIB : |%--*.*u|\n", 100, 5, -123);
+	printf("============================is positive!=========================\n");
+	ft_printf("MY  : |%hhu|\n", 4242);
+	printf("LIB : |%hhu|\n",  4242);
+	ft_printf("MY  : |%+0.100u|\n", 4242);
+	printf("LIB : |%+0.100u|\n",  4242);
+	ft_printf("MY  : |%*u|\n", 100, 4242);
+	printf("LIB : |%*u|\n", 100, 4242);
+	ft_printf("MY  : |%0+*u|\n", 100, 4242);
+	printf("LIB : |%0+*u|\n", 100, 4242);
+	ft_printf("MY  : |%*.7u|\n", 100, 4242);
+	printf("LIB : |%*.7u|\n", 100, 4242);
+	ft_printf("MY  : |%0 *.*u|\n", -100, 5, 4242);
+	printf("LIB : |%0 *.*u|\n", -100, 5, 4242);
+	ft_printf("MY  : |% +*.*u|\n", 100, 0, 4242);
+	printf("LIB : |% +*.*u|\n", 100, 0, 4242);
+	ft_printf("MY  : |% 0*.*u|\n", 100, 5, 4242);
+	printf("LIB : |% 0*.*u|\n", 100, 5, 4242);
+	ft_printf("MY  : |%+--*.*u|\n", 100, 5, 4242);
+	printf("LIB : |%+--*.*u|\n", 100, 5, 4242);
 //	ft_printf("ab%%%%%%%%%%cas|%s|글 자|%s|글 자|%s|\n\n\n",\
 //			'H', "Hello", "\t", "world!");
 //	ft_printf("really%-+0 *.123dbcsd%sdlkj%  000123.432dasdbfd%c\n", 10, "hello", 10, 'c');
@@ -112,6 +153,6 @@ int main()
 	printf("|%++++++00++++100ds|\n", 100);
 	printf("|%*s|\n",100, "isthis");
 	printf("==============p, x, Xcheck=====================\n");
-	printf("|%1$p| |%2$#x| |%2$#010X|\n", &i, (int)-31);
+	printf("|%1$ p| |%2$#x| |%2$#010X|\n", &i, (int)-31);
 
 }

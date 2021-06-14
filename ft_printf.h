@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:04:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 04:38:50 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@
 # define SUCCESS_FLAG 1
 # define ASTERISK -2
 # define SPECS "diunpxXcs%"
+
+/*
+** Define Types
+*/
+
+typedef long long	t_ll;
+typedef unsigned int	t_ui;
+typedef unsigned long	t_ul;
+typedef unsigned long long	t_ull;
 
 /*
 ** HANDLE OPTIONS
@@ -83,5 +92,31 @@ void			ft_print_str(va_list ap, t_lidx *strs);
 void			ft_print_width(t_lidx *strs, char c, int len);
 void			ft_print_char(va_list ap, t_lidx *strs);
 void			ft_print_deci(va_list ap, t_lidx *strs);
+void			ft_print_deci_nbr(va_list ap, t_lidx *strs);
 
+/*
+** TO HANDLE TYPE
+*/
+
+void			ft_putnbr_abs_fd(int n, int fd);
+void			ft_putnbr_char_fd(char n, int fd);
+void			ft_putnbr_uchar_fd(unsigned char n, int fd);
+void			ft_putnbr_l_fd(long n, int fd);
+void			ft_putnbr_ll_fd(t_ll n, int fd);
+void			ft_putnbr_short_fd(short n, int fd);
+void			ft_putnbr_ushort_fd(unsigned short n, int fd);
+void			ft_putnbr_ul_fd(t_ul n, int fd);
+void			ft_putnbr_ull_fd(t_ull n, int fd);
+void			ft_putnbr_ui_fd(t_ui n, int fd);
+int				ft_dgt_char_len(char nbr, unsigned int base);
+int				ft_dgt_uchar_len(unsigned char nbr, unsigned int base);
+int				ft_dgt_l_len(long nbr, unsigned int base);
+int				ft_dgt_ll_len(t_ll nbr, unsigned int base);
+int				ft_dgt_short_len(short nbr, unsigned int base);
+int				ft_dgt_ushort_len(unsigned short nbr, unsigned int base);
+int				ft_dgt_ul_len(t_ul nbr, unsigned int base);
+int				ft_dgt_ull_len(t_ull nbr, unsigned int base);
+int				ft_dgt_ui_len(t_ui nbr, unsigned int base);
+int				get_nbr_len(va_list ap, t_lidx *strs, int base);
+int				is_this_length(t_lidx *strs);
 #endif

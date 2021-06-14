@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_abs_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 20:31:31 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:33:35 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 02:30:10 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static void	make_nbr(int n, int fd)
 {
@@ -28,7 +28,7 @@ static void	make_nbr(int n, int fd)
 	write(fd, &c, 1);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_abs_fd(int n, int fd)
 {
 	if (fd < 0)
 		return ;
@@ -36,10 +36,6 @@ void		ft_putnbr_fd(int n, int fd)
 	{
 		write(fd, "0", 1);
 		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
 	}
 	make_nbr(n, fd);
 }
