@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 13:30:04 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/14 23:04:57 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void			ft_print_str(va_list ap, t_lidx *strs)
 
 	width_len = get_width_len(ap, strs);
 	precision_len = precision_in_str(ap, strs);
-	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1)) || width_len < 0)
+	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1))\
+			|| width_len < 0)
 	{
 		if (width_len < 0)
 			width_len *= -1;

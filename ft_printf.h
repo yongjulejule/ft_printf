@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 14:01:14 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/14 23:04:31 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 
 /*
-** MY MECRO 
+** MY MECRO
 */
 
 # define IS_ERR -2
@@ -28,7 +28,7 @@
 # define SPECS "diunpxXcs%"
 
 /*
-** BASIS 
+** HANDLE OPTIONS
 */
 
 typedef struct	s_opts
@@ -39,6 +39,10 @@ typedef struct	s_opts
 	int length;
 	int spec;
 }				t_opts;
+
+/*
+** LINKED LIST WITH OPTIONS
+*/
 
 typedef struct	s_lidx
 {
@@ -74,6 +78,7 @@ t_lidx			*ft_lidxlast(t_lidx *lst);
 int				go_print(va_list ap, t_lidx *strs);
 int				get_width_len(va_list ap, t_lidx *strs);
 int				get_precision_len(va_list ap, t_lidx *strs);
+void			ft_print_sign(va_list ap, t_lidx *strs);
 void			ft_print_str(va_list ap, t_lidx *strs);
 void			ft_print_width(t_lidx *strs, char c, int len);
 void			ft_print_char(va_list ap, t_lidx *strs);

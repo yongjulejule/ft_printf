@@ -7,6 +7,8 @@ SRCS = ft_printf.c\
 	   ft_print_str.c\
 	   ft_print_width.c\
 	   ft_print_char.c\
+	   ft_print_deci.c\
+	   ft_print_sign.c\
 	   get_flags.c\
 	   get_asterisk_info.c\
 	   go_print.c\
@@ -46,3 +48,4 @@ bonus: $(BONUS_OBJS)
 
 debug: clean 
 	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
+	./a.out

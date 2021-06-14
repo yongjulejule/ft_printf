@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dgtlen_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_print_sign.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 13:51:42 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 18:17:33 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/14 22:06:06 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_dgtlen(int nbr, unsigned int base)
-{
-	int cnt;
+#include "ft_printf.h"
 
-	cnt = 0;
-	if (base < 2)
-		return (0);
+void		ft_print_sign(va_list ap, t_lidx *strs)
+{
+	va_list cp_ap;
+	int		nbr;
+
+	va_copy(cp_ap, ap);
+	nbr = va_arg(cp_ap, int);
+	va_end(cp_ap);
 	if (nbr < 0)
-		nbr *= -1;
-	while (nbr)
+		ft_putchar_fd('-', 1);
+	else
 	{
-		nbr /= base;
-		cnt++;
+		if (ft_memchr(strs->txt, '+', (size_t)(strs->opts.flags + 1)))
+			ft_putchar_fd('+', 1);
+		else if (ft_memchr(strs->txt, ' ', (size_t)(strs->opts.flags + 1)))
+			ft_putchar_fd(' ', 1);
+		else
+			return ;
 	}
-	return (cnt);
 }

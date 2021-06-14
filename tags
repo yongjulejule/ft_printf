@@ -69,6 +69,7 @@ free_splited	parse.c	/^static	void	free_splited(char **line)$/;"	f	typeref:typen
 ft_atoi	libft/ft_atoi.c	/^int		ft_atoi(const char *str)$/;"	f	typeref:typename:int
 ft_bzero	libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
 ft_calloc	libft/ft_calloc.c	/^void	*ft_calloc(size_t count, size_t size)$/;"	f	typeref:typename:void *
+ft_dgtlen	libft/ft_dgtlen_bonus.c	/^int		ft_dgtlen(int nbr, unsigned int base)$/;"	f	typeref:typename:int
 ft_isalnum	libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
 ft_isalpha	libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
 ft_isascii	libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
@@ -95,8 +96,10 @@ ft_memcmp	libft/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size
 ft_memcpy	libft/ft_memcpy.c	/^void	*ft_memcpy(void *dst, const void *src, size_t n)$/;"	f	typeref:typename:void *
 ft_memmove	libft/ft_memmove.c	/^void	*ft_memmove(void *dst, const void *src, size_t len)$/;"	f	typeref:typename:void *
 ft_memset	libft/ft_memset.c	/^void	*ft_memset(void *b, int c, size_t len)$/;"	f	typeref:typename:void *
-ft_print_str	ft_print_str.c	/^int 	ft_print_str(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
-ft_print_str	ft_printf_chrs.c	/^int 	ft_print_str(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
+ft_print_char	ft_print_char.c	/^void			ft_print_char(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
+ft_print_deci	ft_print_deci.c	/^void			ft_print_deci(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
+ft_print_str	ft_print_str.c	/^void			ft_print_str(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
+ft_print_width	ft_print_width.c	/^void	ft_print_width(t_lidx *strs, char c, int len)$/;"	f	typeref:typename:void
 ft_printf	ft_printf.c	/^int		ft_printf(const char *format, ...)$/;"	f	typeref:typename:int
 ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
 ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
@@ -120,10 +123,10 @@ ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
 ft_weak_split	libft/ft_weak_split_bonus.c	/^char			**ft_weak_split(char const *s, char c)$/;"	f	typeref:typename:char **
 get_digit	libft/ft_itoa.c	/^static	int		get_digit(int n)$/;"	f	typeref:typename:int	file:
 get_flags	parse.c	/^static	int		get_flags(t_lidx **str)$/;"	f	typeref:typename:int	file:
-get_precision_len	get_asterisk_info.c	/^int	get_precision_len(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
+get_precision_len	get_asterisk_info.c	/^int		get_precision_len(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 get_size	libft/ft_split.c	/^static int		get_size(char *str, char c)$/;"	f	typeref:typename:int	file:
 get_size	libft/ft_weak_split_bonus.c	/^static int		get_size(char *str, char c)$/;"	f	typeref:typename:int	file:
-get_width_len	get_asterisk_info.c	/^int	get_width_len(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
+get_width_len	get_asterisk_info.c	/^int		get_width_len(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 go_print	go_print.c	/^int go_print(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 go_to_digit	libft/ft_atoi.c	/^char	*go_to_digit(char *str, int *sign)$/;"	f	typeref:typename:char *
 is_zero	libft/ft_itoa.c	/^static	char	*is_zero(void)$/;"	f	typeref:typename:char *	file:
@@ -137,13 +140,16 @@ opts	ft_printf.h	/^	struct s_opts	opts;$/;"	m	struct:s_lidx	typeref:struct:s_opt
 order	ft_printf.h	/^	int				order;$/;"	m	struct:s_lidx	typeref:typename:int
 parsing	parse.c	/^int				parsing(char *format, t_lidx **strs)$/;"	f	typeref:typename:int
 precision	ft_printf.h	/^	int precision;$/;"	m	struct:s_opts	typeref:typename:int
+precision_in_deci	ft_print_deci.c	/^static int		precision_in_deci(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
+precision_in_str	ft_print_str.c	/^static	int		precision_in_str(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
 print_args	go_print.c	/^static	int	print_args(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
+print_char	ft_print_char.c	/^static	void	print_char(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:void	file:
 print_chrs	go_print.c	/^static	int	print_chrs(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
 print_decimal	go_print.c	/^static	int	print_decimal(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
+print_dgt	ft_print_deci.c	/^static	void	print_dgt(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:void	file:
 print_hex	go_print.c	/^static	int	print_hex(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
-print_precision_str	ft_printf_chrs.c	/^static int	print_precision_str(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
-print_str	ft_print_str.c	/^static	int	print_str(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:int	file:
-print_width	ft_print_str.c	/^int print_width(t_lidx *strs, char c, int len)$/;"	f	typeref:typename:int
+print_sign	ft_print_deci.c	/^static	int		print_sign(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
+print_str	ft_print_str.c	/^static	void	print_str(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:void	file:
 re	Makefile	/^re: fclean all$/;"	t
 re	libft/Makefile	/^re: fclean all$/;"	t
 s_lidx	ft_printf.h	/^typedef struct	s_lidx$/;"	s

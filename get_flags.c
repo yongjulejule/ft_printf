@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 02:36:49 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/14 23:06:42 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static	void	check_width(t_lidx *str)
 	check_precision(str);
 }
 
-void	check_flags(t_lidx *str)
+void			check_flags(t_lidx *str)
 {
 	int idx;
 

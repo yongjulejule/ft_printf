@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 13:31:14 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 14:00:53 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/14 18:14:38 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		get_precision_len(va_list ap, t_lidx *strs)
 	else
 	{
 		lens = ft_substr(strs->txt, strs->opts.width + 2,\
-				strs->opts.precision - strs->opts.width + 1);
+				strs->opts.precision - strs->opts.width);
 		len = ft_atoi(lens);
 		free(lens);
 		lens = NULL;
