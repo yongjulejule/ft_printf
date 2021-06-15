@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 09:57:14 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:20:44 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@
 ** Define Types
 */
 
-typedef long long	t_ll;
-typedef unsigned int	t_ui;
-typedef unsigned long	t_ul;
+typedef long long			t_ll;
+typedef unsigned int		t_ui;
+typedef unsigned long		t_ul;
 typedef unsigned long long	t_ull;
 
 /*
@@ -95,7 +95,7 @@ void			ft_print_deci(va_list ap, t_lidx *strs);
 void			ft_print_deci_nbr(va_list ap, t_lidx *strs);
 
 /*
-** TO HANDLE TYPE
+** PRINT AS TYPE
 */
 
 void			ft_putnbr_abs_fd(int n, int fd);
@@ -108,6 +108,11 @@ void			ft_putnbr_ushort_fd(unsigned short n, int fd);
 void			ft_putnbr_ul_fd(t_ul n, int fd);
 void			ft_putnbr_ull_fd(t_ull n, int fd);
 void			ft_putnbr_ui_fd(t_ui n, int fd);
+
+/*
+** GET SIZE
+*/
+
 int				ft_dgt_char_len(char nbr, unsigned int base);
 int				ft_dgt_uchar_len(unsigned char nbr, unsigned int base);
 int				ft_dgt_l_len(long nbr, unsigned int base);
@@ -118,6 +123,6 @@ int				ft_dgt_ul_len(t_ul nbr, unsigned int base);
 int				ft_dgt_ull_len(t_ull nbr, unsigned int base);
 int				ft_dgt_ui_len(t_ui nbr, unsigned int base);
 int				get_nbr_len(va_list ap, t_lidx *strs, int base);
+int				get_sign(va_list ap, t_lidx *strs);
 int				is_this_length(t_lidx *strs);
-int			get_sign(va_list ap, t_lidx *strs);
 #endif

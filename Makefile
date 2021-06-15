@@ -8,6 +8,7 @@ SRCS = ft_printf.c\
 	   ft_print_width.c\
 	   ft_print_char.c\
 	   ft_print_deci.c\
+	   ft_print_deci_nbr.c\
 	   ft_print_sign.c\
 	   get_flags.c\
 	   get_asterisk_info.c\
@@ -24,12 +25,17 @@ SRCS = ft_printf.c\
 	   ft_putnbr_ul_fd.c\
 	   ft_putnbr_ull_fd.c\
 	   ft_putnbr_ushort_fd.c\
+	   ft_putnbr_abs_fd.c\
+	   is_this_length.c\
 
 OBJS = ${SRCS:.c=.o}
 
 BONUS_SRCS = ${SRCS}\
 		
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
+
+#%.o : %.c
+#	$(CC) -c $(CFLAGS) $< -o $@  -I./ft_printf.h -I./$(LIBDIR)
 
 .PHONY: all
 all: $(NAME) #clean

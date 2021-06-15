@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 09:55:58 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:09:37 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int			get_sign(va_list ap, t_lidx *strs)
 {
-	int i;
+	int sign;
 
 	if (is_this_length(strs) == 3 || is_this_length(strs) == 4)
-		i = (va_arg(ap, long) >> 63);
+		sign = (va_arg(ap, long) >> 63);
 	else if (is_this_length(strs) == 2)
-		i = ((char)va_arg(ap, int) >> 7);
-	else if (is_this_length(strs)== 1)
-		i = ((short)va_arg(ap, int) >> 15);
+		sign = ((char)va_arg(ap, int) >> 7);
+	else if (is_this_length(strs) == 1)
+		sign = ((short)va_arg(ap, int) >> 15);
 	else
-		i = (va_arg(ap, int) >> 31);
-	return (i);
+		sign = (va_arg(ap, int) >> 31);
+	return (sign);
 }
 
 void		ft_print_sign(va_list ap, t_lidx *strs)
 {
 	va_list	cp_ap;
-	int sign;
+	int		sign;
 
 	if (strs->txt[strs->opts.spec] == 'u')
 		return ;

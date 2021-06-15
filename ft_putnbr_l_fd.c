@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 02:30:55 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:10:52 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_dgt_l_len(long nbr, unsigned int base)
+int				ft_dgt_l_len(long nbr, unsigned int base)
 {
 	int cnt;
 
@@ -29,7 +29,7 @@ int		ft_dgt_l_len(long nbr, unsigned int base)
 	return (cnt);
 }
 
-static void	make_nbr(long n, int fd)
+static	void	make_nbr(long n, int fd)
 {
 	int		digit;
 	char	c;
@@ -45,7 +45,7 @@ static void	make_nbr(long n, int fd)
 	write(fd, &c, 1);
 }
 
-void		ft_putnbr_l_fd(long n, int fd)
+void			ft_putnbr_l_fd(long n, int fd)
 {
 	if (fd < 0)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:08:56 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:07:02 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ static	int		split_lst(t_lidx **str)
 		if (!backup)
 			return (ERROR_FLAG);
 		newnode = ft_lidxnew(backup, IS_NOT_FLAG);
+		free(backup);
 		if (!newnode)
 		{
-			free(backup);
+			ft_lidxclear(str, free);
 			return (ERROR_FLAG);
 		}
 		cur->txt[cur->opts.spec + 1] = '\0';

@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 02:31:24 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:14:28 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_dgt_uchar_len(unsigned char nbr, unsigned int base)
+int				ft_dgt_uchar_len(unsigned char nbr, unsigned int base)
 {
 	int cnt;
 
@@ -29,7 +29,7 @@ int		ft_dgt_uchar_len(unsigned char nbr, unsigned int base)
 	return (cnt);
 }
 
-static void	make_nbr(unsigned char n, int fd)
+static	void	make_nbr(unsigned char n, int fd)
 {
 	int		digit;
 	char	c;
@@ -45,7 +45,7 @@ static void	make_nbr(unsigned char n, int fd)
 	write(fd, &c, 1);
 }
 
-void		ft_putnbr_uchar_fd(unsigned char n, int fd)
+void			ft_putnbr_uchar_fd(unsigned char n, int fd)
 {
 	if (fd < 0)
 		return ;

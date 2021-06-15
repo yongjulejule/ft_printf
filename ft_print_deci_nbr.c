@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 02:20:31 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 07:41:18 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:16:43 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static	void	put_8bit_nbr(va_list ap, t_lidx *strs)
 	va_end(ap);
 }
 
-void	ft_print_deci_nbr(va_list ap, t_lidx *strs)
+void			ft_print_deci_nbr(va_list ap, t_lidx *strs)
 {
 	if (strs->opts.length >= 0
 			&& (strs->txt[strs->opts.length] == 'l'))
