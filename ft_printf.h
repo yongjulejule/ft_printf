@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 04:38:50 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 09:57:14 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,5 @@ int				ft_dgt_ull_len(t_ull nbr, unsigned int base);
 int				ft_dgt_ui_len(t_ui nbr, unsigned int base);
 int				get_nbr_len(va_list ap, t_lidx *strs, int base);
 int				is_this_length(t_lidx *strs);
+int			get_sign(va_list ap, t_lidx *strs);
 #endif

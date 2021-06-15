@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 02:44:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/15 10:02:58 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 static int		width_in_deci(va_list ap, t_lidx *strs)
 {
-	va_list cp_ap;
+	va_list	cp_ap;
 	int		len;
-	int		nbr;
 
 	len = get_width_len(ap, strs);
 	va_copy(cp_ap, ap);
 	if ((strs->opts.precision != strs->opts.width)\
 			&& strs->txt[strs->opts.precision] == '*')
 		va_arg(cp_ap, int);
-	nbr = va_arg(cp_ap, int);
 	if (strs->txt[strs->opts.spec] != 'u')
-		if (nbr < 0 || ft_memchr(strs->txt, '+', (size_t)(strs->opts.flags + 1))
+		if (get_sign(cp_ap, strs) < 0 || ft_memchr(strs->txt, '+', (size_t)(strs->opts.flags + 1))
 			|| ft_memchr(strs->txt, ' ', (size_t)(strs->opts.flags + 1)))
 		{
 			if (len < 0)
