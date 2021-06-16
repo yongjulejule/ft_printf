@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 11:09:37 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:51:26 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int			get_sign(va_list ap, t_lidx *strs)
 {
 	int sign;
 
-	if (is_this_length(strs) == 3 || is_this_length(strs) == 4)
+	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
 		sign = (va_arg(ap, long) >> 63);
-	else if (is_this_length(strs) == 2)
+	else if (get_length_flag(strs) == 2)
 		sign = ((char)va_arg(ap, int) >> 7);
-	else if (is_this_length(strs) == 1)
+	else if (get_length_flag(strs) == 1)
 		sign = ((short)va_arg(ap, int) >> 15);
 	else
 		sign = (va_arg(ap, int) >> 31);

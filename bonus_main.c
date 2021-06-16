@@ -6,9 +6,10 @@
 #include <wchar.h>
 int main()
 {
+	
 	setbuf(stdout, NULL);
 	setlocale(LC_ALL, "en_US.UTF-8");
-	printf("========================== CHAR TEST ===========================\n");
+	printf("========================== CHAR TEST ===========================\n"); 
 	unsigned char my_char[4];
 	wchar_t b = L'오';
 	unsigned char* d;

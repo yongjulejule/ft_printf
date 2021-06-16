@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 04:25:19 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 11:22:28 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:50:48 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** Is ll = 4
 */
 
-int		is_this_length(t_lidx *strs)
+int		get_length_flag(t_lidx *strs)
 {
 	if (strs->opts.length < 0\
 			|| strs->opts.precision == strs->opts.length)

@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include "ft_printf.h"
-
+#include <locale.h>
 
 int main()
 {
+	setbuf(stdout, NULL);
+	setlocale(LC_ALL, "en_US.UTF-8");
 	int i = 10;
 	printf("============================!!!MY PRINTF!!!============================\n");
 	printf("============================This is String!============================\n");
@@ -20,6 +22,21 @@ int main()
 	printf("LIB : |%0*.*s|\n", 100, 5, "hello printf");
 	ft_printf("MY  : |%--*.*s|\n", 100, 5, "hello printf");
 	printf("LIB : |%--*.*s|\n", 100, 5, "hello printf");
+	ft_printf("MY  : |%*s|\n", 100, "hello printf");
+	printf("LIB : |%*s|\n", 100, "hello printf");
+	printf("============================This is WString!============================\n");
+	ft_printf("MY  : |%100ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	printf("LIB : |%100ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	ft_printf("MY  : |%100.4ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	printf("LIB : |%100.4ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	ft_printf("MY  : |%*.4ls|\n",100, L"🤯🙃🙃🙃🙃🙃");
+	printf("LIB : |%*.4ls|\n",100, L"🤯🙃🙃🙃🙃🙃");
+	ft_printf("MY  : |%0100.*ls|\n",17, L"🤯🙃🙃🙃🙃🙃");
+	printf("LIB : |%0100.*ls|\n",17, L"🤯🙃🙃🙃🙃🙃");
+	ft_printf("MY  : |%100.0ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	printf("LIB : |%100.0ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	ft_printf("MY  : |%0100ls|\n", L"과");
+	printf("LIB : |%0100ls|\n", L"과");
 	printf("============================This is Charactor!=========================\n");
 	ft_printf("MY  : |%*c|\n", 100, 'R');
 	printf("LIB : |%*c|\n", 100, 'R');
@@ -35,6 +52,35 @@ int main()
 	printf("LIB : |%0*.*c|\n", 100, 5, 'R');
 	ft_printf("MY  : |%--*.*c|\n", 100, 5, 'R');
 	printf("LIB : |%--*.*c|\n", 100, 5, 'R');
+	printf("============================This is WCharactor!=========================\n");
+	ft_printf("MY  : |%*lc|\n", 100, L'🤬');
+	printf("LIB : |%*lc|\n", 100, L'🤬');
+	ft_printf("MY  : |%*.lc|\n", 100, L'🤬');
+	printf("LIB : |%*.lc|\n", 100, L'🤬');
+	ft_printf("MY  : |%*.7lc|\n", 100, L'🤬');
+	printf("LIB : |%*.7lc|\n", 100, L'🤬');
+	ft_printf("MY  : |%*.*lc|\n", -100, 5, L'🤬');
+	printf("LIB : |%*.*lc|\n", -100, 5, L'🤬');
+	ft_printf("MY  : |%*.*lc|\n", 100, 0, L'🤬');
+	printf("LIB : |%*.*lc|\n", 100, 0, L'🤬');
+	ft_printf("MY  : |%0*.*lc|\n", 100, 5, L'🤬');
+	printf("LIB : |%0*.*lc|\n", 100, 5, L'🤬');
+	ft_printf("MY  : |%--*.*lc|\n", 100, 5, L'🤬');
+	printf("LIB : |%--*.*lc|\n", 100, 5, L'🤬');
+	ft_printf("MY  : |%*lc|\n", 5, L'🤬');
+	printf("LIB : |%*lc|\n", 5, L'🤬');
+	ft_printf("MY  : |%*.lc|\n", 5, L'🤬');
+	printf("LIB : |%*.lc|\n", 5, L'🤬');
+	ft_printf("MY  : |%*.7lc|\n", 5, L'🤬');
+	printf("LIB : |%*.7lc|\n", 5, L'🤬');
+	ft_printf("MY  : |%*.*lc|\n", -5, 5, L'🤬');
+	printf("LIB : |%*.*lc|\n", -5, 5, L'🤬');
+	ft_printf("MY  : |%*.*lc|\n", 5, 0, L'🤬');
+	printf("LIB : |%*.*lc|\n", 5, 0, L'🤬');
+	ft_printf("MY  : |%0*.*lc|\n", 5, 5, L'🤬');
+	printf("LIB : |%0*.*lc|\n", 5, 5, L'🤬');
+	ft_printf("MY  : |%--*.*lc|\n", 5, 5, L'🤬');
+	printf("LIB : |%--*.*lc|\n", 5, 5, L'🤬');
 	printf("============================This is Dedimal!=========================\n");
 	printf("============================is negative!=========================\n");
 	ft_printf("MY  : |%d|\n", -123);
@@ -320,7 +366,7 @@ int main()
 	printf("|%     00100ds|\n", 100);
 	printf("|%++++++00++++100ds|\n", 100);
 	printf("|%*s|\n",100, "isthis");
+
 	printf("==============p, x, Xcheck=====================\n");
 	printf("|%1$ p| |%2$#x| |%2$#010X|\n", &i, (int)-31);
-
 }

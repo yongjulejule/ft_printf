@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:14:41 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 15:26:33 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 21:19:43 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	putchar_utf_4(t_ui uni, int fd)
+static	void	putchar_utf_4(t_ui uni, int fd)
 {
 	unsigned char	bits[4];
 	int				idx;
@@ -33,7 +33,7 @@ static void	putchar_utf_4(t_ui uni, int fd)
 	}
 }
 
-static void	putchar_utf_3(t_ui uni, int fd)
+static	void	putchar_utf_3(t_ui uni, int fd)
 {
 	unsigned char	bits[3];
 	int				idx;
@@ -54,7 +54,7 @@ static void	putchar_utf_3(t_ui uni, int fd)
 	}
 }
 
-static void	putchar_utf_2(t_ui uni, int fd)
+static	void	putchar_utf_2(t_ui uni, int fd)
 {
 	unsigned char	bits[2];
 
@@ -65,12 +65,12 @@ static void	putchar_utf_2(t_ui uni, int fd)
 	write(fd, &bits[1], 1);
 }
 
-static void	putchar_utf_1(t_ui uni, int fd)
+static	void	putchar_utf_1(t_ui uni, int fd)
 {
 	write(fd, &uni, 1);
 }
 
-void	ft_putchar_utf_fd(t_ui uni, int fd)
+void			ft_putchar_utf_fd(t_ui uni, int fd)
 {
 	if (uni <= UTF_8_1)
 		putchar_utf_1(uni, fd);

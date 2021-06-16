@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:38:05 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:03:49 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 22:13:23 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,36 @@
 static	void	print_char(va_list ap, t_lidx *strs, int len)
 {
 	char	c;
+	wchar_t	wc;
 
-	c = va_arg(ap, int);
-	ft_putchar_fd(c, 1);
+	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
+	{
+		wc = va_arg(ap, int);
+		ft_putchar_utf_fd(wc, 1);
+	}
+	else
+	{
+		c = va_arg(ap, int);
+		ft_putchar_fd(c, 1);
+	}
 	strs->opts.precision = len;
+}
+
+static	int		width_in_char(va_list ap, t_lidx *strs, int width_len)
+{
+	size_t len;
+
+	len = ft_utf_byte_chr_len(ap);
+	if (width_len < len)
+		return (0);
+	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
+	{
+		if (width_len > 0)
+			width_len -= len;
+		else
+			width_len += len;
+	}
+	return (width_len);
 }
 
 void			ft_print_char(va_list ap, t_lidx *strs)
@@ -28,6 +54,7 @@ void			ft_print_char(va_list ap, t_lidx *strs)
 
 	width_len = get_width_len(ap, strs);
 	precision_len = get_precision_len(ap, strs);
+	width_len = width_in_char(ap, strs, width_len);
 	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1))\
 			|| width_len < 0)
 	{

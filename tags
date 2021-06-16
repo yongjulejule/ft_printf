@@ -41,9 +41,18 @@ NAME	libft/Makefile	/^NAME = libft.a$/;"	m
 OBJS	Makefile	/^OBJS = ${SRCS:.c=.o}$/;"	m
 OBJS	libft/Makefile	/^OBJS = ${SRCS:.c=.o}$/;"	m
 SPECS	ft_printf.h	/^# define SPECS /;"	d
-SRCS	Makefile	/^SRCS = ft_printf.c\\$/;"	m
+SRCS	Makefile	/^SRCS = \\$/;"	m
 SRCS	libft/Makefile	/^SRCS = ft_memset.c\\$/;"	m
 SUCCESS_FLAG	ft_printf.h	/^# define SUCCESS_FLAG /;"	d
+UTF_8_1	ft_printf.h	/^# define UTF_8_1 /;"	d
+UTF_8_2	ft_printf.h	/^# define UTF_8_2 /;"	d
+UTF_8_3	ft_printf.h	/^# define UTF_8_3 /;"	d
+UTF_8_4	ft_printf.h	/^# define UTF_8_4 /;"	d
+UTF_MASK_0	ft_printf.h	/^# define UTF_MASK_0 /;"	d
+UTF_MASK_1	ft_printf.h	/^# define UTF_MASK_1 /;"	d
+UTF_MASK_2	ft_printf.h	/^# define UTF_MASK_2 /;"	d
+UTF_MASK_3	ft_printf.h	/^# define UTF_MASK_3 /;"	d
+UTF_MASK_4	ft_printf.h	/^# define UTF_MASK_4 /;"	d
 all	Makefile	/^all: $(NAME) #clean$/;"	t
 all	libft/Makefile	/^all: $(NAME)$/;"	t
 alloc_mem	libft/ft_split.c	/^static	char	**alloc_mem(char **tmp, int start, int i, int idx)$/;"	f	typeref:typename:char **	file:
@@ -69,15 +78,15 @@ free_splited	parse.c	/^static	void	free_splited(char **line)$/;"	f	typeref:typen
 ft_atoi	libft/ft_atoi.c	/^int		ft_atoi(const char *str)$/;"	f	typeref:typename:int
 ft_bzero	libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
 ft_calloc	libft/ft_calloc.c	/^void	*ft_calloc(size_t count, size_t size)$/;"	f	typeref:typename:void *
-ft_dgt_char_len	ft_putnbr_char_fd.c	/^int		ft_dgt_char_len(char nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_l_len	ft_putnbr_l_fd.c	/^int		ft_dgt_l_len(long nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_ll_len	ft_putnbr_ll_fd.c	/^int		ft_dgt_ll_len(t_ll nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_short_len	ft_putnbr_short_fd.c	/^int		ft_dgt_short_len(short nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_uchar_len	ft_putnbr_uchar_fd.c	/^int		ft_dgt_uchar_len(unsigned char nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_ui_len	ft_putnbr_ui_fd.c	/^int		ft_dgt_ui_len(t_ui nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_ul_len	ft_putnbr_ul_fd.c	/^int		ft_dgt_ul_len(t_ul nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_ull_len	ft_putnbr_ull_fd.c	/^int		ft_dgt_ull_len(t_ull nbr, unsigned int base)$/;"	f	typeref:typename:int
-ft_dgt_ushort_len	ft_putnbr_ushort_fd.c	/^int		ft_dgt_ushort_len(unsigned short nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_char_len	ft_putnbr_char_fd.c	/^int				ft_dgt_char_len(char nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_l_len	ft_putnbr_l_fd.c	/^int				ft_dgt_l_len(long nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_ll_len	ft_putnbr_ll_fd.c	/^int				ft_dgt_ll_len(t_ll nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_short_len	ft_putnbr_short_fd.c	/^int				ft_dgt_short_len(short nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_uchar_len	ft_putnbr_uchar_fd.c	/^int				ft_dgt_uchar_len(unsigned char nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_ui_len	ft_putnbr_ui_fd.c	/^int				ft_dgt_ui_len(t_ui nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_ul_len	ft_putnbr_ul_fd.c	/^int				ft_dgt_ul_len(t_ul nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_ull_len	ft_putnbr_ull_fd.c	/^int				ft_dgt_ull_len(t_ull nbr, unsigned int base)$/;"	f	typeref:typename:int
+ft_dgt_ushort_len	ft_putnbr_ushort_fd.c	/^int				ft_dgt_ushort_len(unsigned short nbr, unsigned int base)$/;"	f	typeref:typename:int
 ft_dgtlen	libft/ft_dgtlen_bonus.c	/^int		ft_dgtlen(int nbr, unsigned int base)$/;"	f	typeref:typename:int
 ft_isalnum	libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
 ft_isalpha	libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
@@ -107,24 +116,25 @@ ft_memmove	libft/ft_memmove.c	/^void	*ft_memmove(void *dst, const void *src, siz
 ft_memset	libft/ft_memset.c	/^void	*ft_memset(void *b, int c, size_t len)$/;"	f	typeref:typename:void *
 ft_print_char	ft_print_char.c	/^void			ft_print_char(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
 ft_print_deci	ft_print_deci.c	/^void			ft_print_deci(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
-ft_print_deci_nbr	ft_print_deci_nbr.c	/^void	ft_print_deci_nbr(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
+ft_print_deci_nbr	ft_print_deci_nbr.c	/^void			ft_print_deci_nbr(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
 ft_print_sign	ft_print_sign.c	/^void		ft_print_sign(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
 ft_print_str	ft_print_str.c	/^void			ft_print_str(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void
 ft_print_width	ft_print_width.c	/^void	ft_print_width(t_lidx *strs, char c, int len)$/;"	f	typeref:typename:void
 ft_printf	ft_printf.c	/^int		ft_printf(const char *format, ...)$/;"	f	typeref:typename:int
 ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putchar_utf_fd	ft_putstr_uft_fd.c	/^void			ft_putchar_utf_fd(t_ui uni, int fd)$/;"	f	typeref:typename:void
 ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
 ft_putnbr_abs_fd	ft_putnbr_abs_fd.c	/^void		ft_putnbr_abs_fd(int n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_char_fd	ft_putnbr_char_fd.c	/^void		ft_putnbr_char_fd(char n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_char_fd	ft_putnbr_char_fd.c	/^void			ft_putnbr_char_fd(char n, int fd)$/;"	f	typeref:typename:void
 ft_putnbr_fd	libft/ft_putnbr_fd.c	/^void		ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_l_fd	ft_putnbr_l_fd.c	/^void		ft_putnbr_l_fd(long n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_ll_fd	ft_putnbr_ll_fd.c	/^void		ft_putnbr_ll_fd(t_ll n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_short_fd	ft_putnbr_short_fd.c	/^void		ft_putnbr_short_fd(short n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_uchar_fd	ft_putnbr_uchar_fd.c	/^void		ft_putnbr_uchar_fd(unsigned char n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_ui_fd	ft_putnbr_ui_fd.c	/^void		ft_putnbr_ui_fd(t_ui n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_ul_fd	ft_putnbr_ul_fd.c	/^void		ft_putnbr_ul_fd(t_ul n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_ull_fd	ft_putnbr_ull_fd.c	/^void		ft_putnbr_ull_fd(t_ull n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_ushort_fd	ft_putnbr_ushort_fd.c	/^void		ft_putnbr_ushort_fd(unsigned short n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_l_fd	ft_putnbr_l_fd.c	/^void			ft_putnbr_l_fd(long n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_ll_fd	ft_putnbr_ll_fd.c	/^void			ft_putnbr_ll_fd(t_ll n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_short_fd	ft_putnbr_short_fd.c	/^void			ft_putnbr_short_fd(short n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_uchar_fd	ft_putnbr_uchar_fd.c	/^void			ft_putnbr_uchar_fd(unsigned char n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_ui_fd	ft_putnbr_ui_fd.c	/^void			ft_putnbr_ui_fd(t_ui n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_ul_fd	ft_putnbr_ul_fd.c	/^void			ft_putnbr_ul_fd(t_ul n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_ull_fd	ft_putnbr_ull_fd.c	/^void			ft_putnbr_ull_fd(t_ull n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_ushort_fd	ft_putnbr_ushort_fd.c	/^void			ft_putnbr_ushort_fd(unsigned short n, int fd)$/;"	f	typeref:typename:void
 ft_putstr_fd	libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
 ft_split	libft/ft_split.c	/^char			**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
 ft_strchr	libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
@@ -141,32 +151,39 @@ ft_strtrim	libft/ft_strtrim.c	/^char		*ft_strtrim(char const *s1, char const *se
 ft_substr	libft/ft_substr.c	/^char			*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
 ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
 ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
+ft_utf_byte_chr_len	ft_utflen.c	/^size_t	ft_utf_byte_chr_len(va_list ap)$/;"	f	typeref:typename:size_t
+ft_utf_byte_len	ft_utflen.c	/^size_t	ft_utf_byte_len(wchar_t *utf_str)$/;"	f	typeref:typename:size_t
+ft_utf_last_len	ft_utflen.c	/^size_t	ft_utf_last_len(wchar_t *utf_str, int len)$/;"	f	typeref:typename:size_t
+ft_utf_put_byte	ft_utflen.c	/^size_t	ft_utf_put_byte(wchar_t utf_str, int len)$/;"	f	typeref:typename:size_t
 ft_weak_split	libft/ft_weak_split_bonus.c	/^char			**ft_weak_split(char const *s, char c)$/;"	f	typeref:typename:char **
 get_4bit_len	get_nbr_len.c	/^static	int	get_4bit_len(va_list ap, t_lidx *strs, int base)$/;"	f	typeref:typename:int	file:
 get_8bit_len	get_nbr_len.c	/^static	int	get_8bit_len(va_list ap, t_lidx *strs, int base)$/;"	f	typeref:typename:int	file:
 get_digit	libft/ft_itoa.c	/^static	int		get_digit(int n)$/;"	f	typeref:typename:int	file:
 get_flags	parse.c	/^static	int		get_flags(t_lidx **str)$/;"	f	typeref:typename:int	file:
+get_length_flag	get_length_flag.c	/^int		get_length_flag(t_lidx *strs)$/;"	f	typeref:typename:int
 get_nbr_len	get_nbr_len.c	/^int			get_nbr_len(va_list ap, t_lidx *strs, int base)$/;"	f	typeref:typename:int
 get_precision_len	get_asterisk_info.c	/^int		get_precision_len(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
+get_sign	ft_print_sign.c	/^int			get_sign(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 get_size	libft/ft_split.c	/^static int		get_size(char *str, char c)$/;"	f	typeref:typename:int	file:
 get_size	libft/ft_weak_split_bonus.c	/^static int		get_size(char *str, char c)$/;"	f	typeref:typename:int	file:
 get_width_len	get_asterisk_info.c	/^int		get_width_len(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 go_print	go_print.c	/^int			go_print(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int
 go_to_digit	libft/ft_atoi.c	/^char	*go_to_digit(char *str, int *sign)$/;"	f	typeref:typename:char *
-is_this_length	is_this_length.c	/^int is_this_length(t_lidx *strs)$/;"	f	typeref:typename:int
 is_zero	libft/ft_itoa.c	/^static	char	*is_zero(void)$/;"	f	typeref:typename:char *	file:
 length	ft_printf.h	/^	int length;$/;"	m	struct:s_opts	typeref:typename:int
+main	bonus_main.c	/^int main()$/;"	f	typeref:typename:int
 main	main.c	/^int main()$/;"	f	typeref:typename:int
+main	unicode_main.c	/^int main()$/;"	f	typeref:typename:int
 make_nbr	ft_putnbr_abs_fd.c	/^static void	make_nbr(int n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_char_fd.c	/^static void	make_nbr(char n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_l_fd.c	/^static void	make_nbr(long n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_ll_fd.c	/^static void	make_nbr(t_ll n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_short_fd.c	/^static void	make_nbr(short n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_uchar_fd.c	/^static void	make_nbr(unsigned char n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_ui_fd.c	/^static void	make_nbr(t_ui n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_ul_fd.c	/^static void	make_nbr(t_ul n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_ull_fd.c	/^static void	make_nbr(t_ull n, int fd)$/;"	f	typeref:typename:void	file:
-make_nbr	ft_putnbr_ushort_fd.c	/^static void	make_nbr(unsigned short n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_char_fd.c	/^static	void	make_nbr(char n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_l_fd.c	/^static	void	make_nbr(long n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_ll_fd.c	/^static	void	make_nbr(t_ll n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_short_fd.c	/^static	void	make_nbr(short n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_uchar_fd.c	/^static	void	make_nbr(unsigned char n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_ui_fd.c	/^static	void	make_nbr(t_ui n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_ul_fd.c	/^static	void	make_nbr(t_ul n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_ull_fd.c	/^static	void	make_nbr(t_ull n, int fd)$/;"	f	typeref:typename:void	file:
+make_nbr	ft_putnbr_ushort_fd.c	/^static	void	make_nbr(unsigned short n, int fd)$/;"	f	typeref:typename:void	file:
 make_nbr	libft/ft_putnbr_fd.c	/^static void	make_nbr(int n, int fd)$/;"	f	typeref:typename:void	file:
 max_len	libft/ft_substr.c	/^static	size_t	max_len(size_t len1, size_t len2)$/;"	f	typeref:typename:size_t	file:
 next	ft_printf.h	/^	struct s_lidx	*next;$/;"	m	struct:s_lidx	typeref:struct:s_lidx *
@@ -184,8 +201,13 @@ print_decimal	go_print.c	/^static	int	print_decimal(va_list ap, t_lidx *strs)$/;
 print_dgt	ft_print_deci.c	/^static	void	print_dgt(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:void	file:
 print_hex	go_print.c	/^static	int	print_hex(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:int	file:
 print_str	ft_print_str.c	/^static	void	print_str(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:void	file:
+print_utf_str	ft_print_str.c	/^static	void	print_utf_str(va_list ap, t_lidx *strs, int len)$/;"	f	typeref:typename:void	file:
 put_4bit_nbr	ft_print_deci_nbr.c	/^static	void	put_4bit_nbr(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void	file:
 put_8bit_nbr	ft_print_deci_nbr.c	/^static	void	put_8bit_nbr(va_list ap, t_lidx *strs)$/;"	f	typeref:typename:void	file:
+putchar_utf_1	ft_putstr_uft_fd.c	/^static	void	putchar_utf_1(t_ui uni, int fd)$/;"	f	typeref:typename:void	file:
+putchar_utf_2	ft_putstr_uft_fd.c	/^static	void	putchar_utf_2(t_ui uni, int fd)$/;"	f	typeref:typename:void	file:
+putchar_utf_3	ft_putstr_uft_fd.c	/^static	void	putchar_utf_3(t_ui uni, int fd)$/;"	f	typeref:typename:void	file:
+putchar_utf_4	ft_putstr_uft_fd.c	/^static	void	putchar_utf_4(t_ui uni, int fd)$/;"	f	typeref:typename:void	file:
 re	Makefile	/^re: fclean all$/;"	t
 re	libft/Makefile	/^re: fclean all$/;"	t
 s_lidx	ft_printf.h	/^typedef struct	s_lidx$/;"	s
@@ -195,10 +217,10 @@ spec	ft_printf.h	/^	int spec;$/;"	m	struct:s_opts	typeref:typename:int
 split_lst	parse.c	/^static	int		split_lst(t_lidx **str)$/;"	f	typeref:typename:int	file:
 t_lidx	ft_printf.h	/^}				t_lidx;$/;"	t	typeref:struct:s_lidx
 t_list	libft/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
-t_ll	ft_printf.h	/^typedef long long	t_ll;$/;"	t	typeref:typename:long long
+t_ll	ft_printf.h	/^typedef long long			t_ll;$/;"	t	typeref:typename:long long
 t_opts	ft_printf.h	/^}				t_opts;$/;"	t	typeref:struct:s_opts
-t_ui	ft_printf.h	/^typedef unsigned int	t_ui;$/;"	t	typeref:typename:unsigned int
-t_ul	ft_printf.h	/^typedef unsigned long	t_ul;$/;"	t	typeref:typename:unsigned long
+t_ui	ft_printf.h	/^typedef unsigned int		t_ui;$/;"	t	typeref:typename:unsigned int
+t_ul	ft_printf.h	/^typedef unsigned long		t_ul;$/;"	t	typeref:typename:unsigned long
 t_ull	ft_printf.h	/^typedef unsigned long long	t_ull;$/;"	t	typeref:typename:unsigned long long
 to_string	libft/ft_itoa.c	/^static void		to_string(int n, int cnt, char *str)$/;"	f	typeref:typename:void	file:
 txt	ft_printf.h	/^	char			*txt;$/;"	m	struct:s_lidx	typeref:typename:char *

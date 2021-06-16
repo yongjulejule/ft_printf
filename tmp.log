@@ -1,0 +1,122 @@
+Norme: ./ Makefile 
+Warning: Not a valid file
+Norme: ./ a.out 
+Warning: Not a valid file
+Norme: ./ a.out.dSYM/Contents/Info.plist 
+Warning: Not a valid file
+Norme: ./ a.out.dSYM/Contents/Resources/DWARF/a.out 
+Warning: Not a valid file
+Norme: ./ libft/Makefile 
+Warning: Not a valid file
+Norme: ./ libft/libft.a 
+Warning: Not a valid file
+Norme: ./ libft/tags 
+Warning: Not a valid file
+Norme: ./ libftprintf.a 
+Warning: Not a valid file
+Norme: ./ tags 
+Warning: Not a valid file
+Norme: ./ tmp.log 
+Warning: Not a valid file
+Norme: ft_print_width.c
+Norme: ft_printf.c
+Norme: bonus_main.c
+🔥ERROR🤪: 42 header not at top of the file
+🔥ERROR🤪 (line 6): preprocessor block must be followed by one empty line
+🔥ERROR🤪 (line 7): declarations in main must be at the top of the function
+🔥ERROR🤪 (line 7): declarations must be followed by one empty line in main
+🔥ERROR🤪 (line 7): declarations in main are bad aligned
+🔥ERROR🤪 (line 7): Space before function name
+🔥ERROR🤪 (line 7): bad spacing before main
+🔥ERROR🤪 (line 7): missing void in function main
+🔥ERROR🤪 (line 7): function main has 47 lines
+🔥ERROR🤪 (line 9): spaces at the end of line
+🔥ERROR🤪 (line 9): bad indentation
+🔥ERROR🤪 (line 12): spaces at the end of line
+🔥ERROR🤪 (line 12): line has 83 characters
+🔥ERROR🤪 (line 14, col 9): b is instanciated during declaration
+🔥ERROR🤪 (line 15, col 14): space after pointer
+🔥ERROR🤪 (line 17, col 14): bad character after ,
+🔥ERROR🤪 (line 20, col 33): missing space around >>
+🔥ERROR🤪 (line 21, col 33): missing space around >>
+🔥ERROR🤪 (line 22, col 33): missing space around >>
+🔥ERROR🤪 (line 25, col 9): c_1 is instanciated during declaration
+🔥ERROR🤪 (line 29): C++ comment
+🔥ERROR🤪 (line 30): C++ comment
+🔥ERROR🤪 (line 34, col 5): j is instanciated during declaration
+🔥ERROR🤪 (line 37): spaces at the end of line
+🔥ERROR🤪 (line 37, col 1): no newline after block
+🔥ERROR🤪 (line 41): C++ comment
+🔥ERROR🤪 (line 42): C++ comment
+🔥ERROR🤪 (line 43): C++ comment
+🔥ERROR🤪 (line 44): C++ comment
+🔥ERROR🤪 (line 45): C++ comment
+🔥ERROR🤪 (line 46): C++ comment
+🔥ERROR🤪 (line 47): C++ comment
+🔥ERROR🤪 (line 48): C++ comment
+🔥ERROR🤪 (line 49): C++ comment
+🔥ERROR🤪 (line 50): spaces at the end of line
+🔥ERROR🤪 (line 50): C++ comment
+🔥ERROR🤪 (line 51): C++ comment
+🔥ERROR🤪 (line 52): C++ comment
+🔥ERROR🤪 (line 53): C++ comment
+🔥ERROR🤪 (line 54): C++ comment
+🔥ERROR🤪 (line 55): C++ comment
+🔥ERROR🤪 (line 56, col 0): no empty line before block
+🔥ERROR🤪 (line 57): C++ comment
+Norme: ft_putnbr_ui_fd.c
+Norme: ft_print_sign.c
+Norme: ft_putnbr_uchar_fd.c
+Norme: ft_print_char.c
+Norme: get_length_flag.c
+Norme: ft_print_deci_nbr.c
+Norme: ft_putnbr_ll_fd.c
+Norme: libft/ft_isalpha.c
+Norme: libft/ft_lstdelone.c
+Norme: ft_putnbr_abs_fd.c
+Norme: libft/ft_memcmp.c
+Norme: ft_putnbr_l_fd.c
+Norme: ft_putnbr_ull_fd.c
+Norme: ft_printf.h
+Norme: ft_print_str.c
+Norme: ft_print_deci.c
+Norme: ft_utflen.c
+Norme: ft_putnbr_ul_fd.c
+Norme: libft/ft_calloc.c
+Norme: ft_putnbr_short_fd.c
+Norme: get_flags.c
+Norme: ft_putnbr_char_fd.c
+Norme: libft/ft_lstadd_back.c
+Norme: libft/ft_isalnum.c
+Norme: libft/ft_lstsize.c
+Norme: ft_putstr_uft_fd.c
+Norme: libft/ft_putendl_fd.c
+Norme: libft/ft_bzero.c
+Norme: libft/ft_lstclear.c
+Norme: go_print.c
+Norme: ft_putnbr_ushort_fd.c
+Norme: libft/ft_split.c
+Norme: libft/ft_isdigit.c
+Norme: libft/ft_strlcpy.c
+Norme: get_asterisk_info.c
+Norme: libft/ft_lstlast.c
+Norme: libft/ft_memchr.c
+Norme: libft/ft_tolower.c
+Norme: libft/ft_dgtlen_bonus.c
+Norme: libft/ft_putstr_fd.c
+Norme: libft/ft_strncmp.c
+Norme: libft/ft_lstadd_front.c
+Norme: libft/ft_memmove.c
+Norme: libft/ft_strmapi.c
+Norme: libft/ft_atoi.c
+Norme: get_nbr_len.c
+Norme: libft/ft_memccpy.c
+Norme: libft/ft_isprint.c
+Norme: libft/ft_isascii.c
+Norme: libft/ft_strdup.c
+Norme: libft/ft_lstiter.c
+Norme: libft/ft_itoa.c
+Norme: libft/ft_strrchr.c
+Norme: libft/ft_putnbr_fd.c
+Norme: libft/ft_lstnew.c
+No

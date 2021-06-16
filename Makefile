@@ -3,7 +3,8 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 LIB = libft.a
 LIBDIR = libft
-SRCS = ft_printf.c\
+SRCS = \
+	   ft_printf.c\
 	   ft_print_str.c\
 	   ft_print_width.c\
 	   ft_print_char.c\
@@ -13,9 +14,7 @@ SRCS = ft_printf.c\
 	   get_flags.c\
 	   get_asterisk_info.c\
 	   get_nbr_len.c\
-	   go_print.c\
-	   lsts.c\
-	   parse.c\
+	   get_length_flag.c\
 	   ft_putnbr_char_fd.c\
 	   ft_putnbr_l_fd.c\
 	   ft_putnbr_ll_fd.c\
@@ -27,7 +26,10 @@ SRCS = ft_printf.c\
 	   ft_putnbr_ushort_fd.c\
 	   ft_putnbr_abs_fd.c\
 	   ft_putstr_uft_fd.c\
-	   is_this_length.c\
+	   go_print.c\
+	   lsts.c\
+	   parse.c\
+	   ft_utflen.c\
 
 OBJS = ${SRCS:.c=.o}
 

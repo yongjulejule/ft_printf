@@ -6,11 +6,27 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:04:57 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 21:00:25 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static	void	print_utf_str(va_list ap, t_lidx *strs, int len)
+{
+	wchar_t	*utf_s;
+	int		idx;
+
+	idx = 0;
+	utf_s = va_arg(ap, wchar_t*);
+	while (idx < len)
+	{
+		len = ft_utf_put_byte(utf_s[idx], len);
+		ft_putchar_utf_fd(utf_s[idx], 1);
+		idx++;
+	}
+	strs->order = len;
+}
 
 static	void	print_str(va_list ap, t_lidx *strs, int len)
 {
@@ -18,13 +34,18 @@ static	void	print_str(va_list ap, t_lidx *strs, int len)
 	int		idx;
 
 	idx = 0;
-	s = va_arg(ap, char*);
-	while (idx < len)
+	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
+		print_utf_str(ap, strs, len);
+	else
 	{
-		ft_putchar_fd(s[idx], 1);
-		idx++;
+		s = va_arg(ap, char*);
+		while (idx < len)
+		{
+			ft_putchar_fd(s[idx], 1);
+			idx++;
+		}
+		strs->order = len;
 	}
-	strs->opts.precision = len;
 }
 
 static	int		precision_in_str(va_list ap, t_lidx *strs)
@@ -32,10 +53,19 @@ static	int		precision_in_str(va_list ap, t_lidx *strs)
 	va_list	cp_ap;
 	int		len;
 	int		tmplen;
+	wchar_t	*utf_s;
 
 	len = get_precision_len(ap, strs);
 	va_copy(cp_ap, ap);
-	tmplen = ft_strlen(va_arg(cp_ap, char*));
+	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
+	{
+		utf_s = va_arg(cp_ap, wchar_t*);
+		tmplen = ft_utf_byte_len(utf_s);
+		if (len > 0 && len <= tmplen)
+			len -= ft_utf_last_len(utf_s, len);
+	}
+	else
+		tmplen = ft_strlen(va_arg(cp_ap, char*));
 	if (len < 0 || len > tmplen)
 		len = tmplen;
 	va_end(cp_ap);
