@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 11:20:44 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 12:45:09 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,21 @@
 # define SPECS "diunpxXcs%"
 
 /*
-** Define Types
+** HANDLE UTF-8
+*/
+
+# define UTF_8_1 0x7F
+# define UTF_8_2 0x7FF
+# define UTF_8_3 0xFFFF
+# define UTF_8_4 0x1FFFFF
+# define UTF_MASK_1 0x7F
+# define UTF_MASK_2 0xDF
+# define UTF_MASK_3 0xE0
+# define UTF_MASK_4 0xF7
+# define UTF_MASK_0 0xB0
+
+/*
+** DEFINE TYPES
 */
 
 typedef long long			t_ll;

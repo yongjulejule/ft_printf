@@ -2,36 +2,36 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <locale.h>
+#include <wchar.h>
 int main()
 {
+	setbuf(stdout, NULL);
+	setlocale(LC_ALL, "en_US.UTF-8");
 	printf("========================== CHAR TEST ===========================\n");
 	unsigned char my_char[4];
-	int a = (int)L'오';
-	int b = 1234555566;
+	wchar_t b = L'오';
 	unsigned char* d;
 	d = (unsigned char*)&b;
-	printf("%x\n",d[1]);
+	printf("%x\n",d[0]);
 	printf("%x\n", b);
 	printf("%x\n", (unsigned char)b);
+	printf("%x\n", (unsigned char)(b>>4));
 	printf("%x\n", (unsigned char)(b>>8));
-	printf("%x\n", (unsigned char)(b>>16));
-	printf("%x\n", (unsigned char)(b>>24));
-	printf("%d,", (unsigned char)a);
-	a >>= 8;
-	printf("%d,", (unsigned char)a);
-	a >>= 6;
-	printf("%d,", a);
+	printf("%x\n", (unsigned char)(b>>12));
 	printf("\n\n\n");
-	printf("bit cal::%x\n", (unsigned char)(L'오'>>8));
-	printf("%x", 152);
+	printf("bit cal::%lc\n\n\n", L'오');
+	wchar_t c_1 = L'오';
+	printf("\n\n%x\n\n", c_1);
+
+	write(1, &c_1, 4);
 //	unsigned char *a = (unsigned char*)"오";
 //	printf("\n a =%d", *(a + 1));
 	my_char[0] = (unsigned char)236;
 	my_char[1] = (unsigned char)152;
 	my_char[2] = (unsigned char)164;
-	my_char[3] = (unsigned char)48;
 	int j = 0;
-	while (j < 4)
+	while (j < 3)
 	{	
 		write(1, &my_char[j], 1);
 		j++;
