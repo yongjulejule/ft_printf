@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 17:30:49 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 21:52:49 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 22:20:15 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_utf_last_len(wchar_t *utf_str, int len)
 {
-	size_t	idx;
+	int	idx;
 
 	idx = 0;
 	while (idx < len)

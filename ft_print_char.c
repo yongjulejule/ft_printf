@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:38:05 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 22:13:23 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 22:19:44 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	void	print_char(va_list ap, t_lidx *strs, int len)
 
 static	int		width_in_char(va_list ap, t_lidx *strs, int width_len)
 {
-	size_t len;
+	int	len;
 
 	len = ft_utf_byte_chr_len(ap);
 	if (width_len < len)

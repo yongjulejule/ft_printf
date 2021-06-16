@@ -68,3 +68,5 @@ bonus: $(BONUS_OBJS)
 debug: clean 
 	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
 	./a.out
+leaks: clean
+	$(CC) -g $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
