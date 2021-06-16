@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:22:43 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 23:08:12 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 01:04:21 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static	int	print_decimal(va_list ap, t_lidx *strs)
 
 static	int	print_hex(va_list ap, t_lidx *strs)
 {
-	strs->txt[0] = 'H';
-	ap = 0;
+	ft_print_hexa()
 	return (0);
 }
 

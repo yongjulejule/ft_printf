@@ -368,5 +368,5 @@ int main()
 	printf("|%*s|\n",100, "isthis");
 
 	printf("==============p, x, Xcheck=====================\n");
-	printf("|%1$ p| |%2$#x| |%2$#010X|\n", &i, (int)-31);
+	printf("|%1$p|\n|%2$#100lx|\n|%2$#100.120lX|\n", &i, (size_t)+1);
 }

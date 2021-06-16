@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 21:29:56 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 02:08:50 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define SUCCESS_FLAG 1
 # define ASTERISK -2
 # define SPECS "diunpxXcs%"
+# define HEX_S "0123456789abcdef"
+# define HEX_L "0123456789ABCDEF"
 
 /*
 ** HANDLE UTF-8
@@ -107,6 +109,8 @@ void			ft_print_width(t_lidx *strs, char c, int len);
 void			ft_print_char(va_list ap, t_lidx *strs);
 void			ft_print_deci(va_list ap, t_lidx *strs);
 void			ft_print_deci_nbr(va_list ap, t_lidx *strs);
+int				ft_print_hash(va_list ap, t_lidx *strs);
+void			ft_print_hexa_nbr(va_list ap, t_lidx *strs);
 
 /*
 ** PRINT AS TYPE
@@ -123,6 +127,12 @@ void			ft_putnbr_ul_fd(t_ul n, int fd);
 void			ft_putnbr_ull_fd(t_ull n, int fd);
 void			ft_putnbr_ui_fd(t_ui n, int fd);
 void			ft_putchar_utf_fd(t_ui uni, int fd);
+void			ft_putnbr_ui_hexa_fd(t_lidx *strs, t_ui n, int fd);
+void			ft_putnbr_ul_hexa_fd(t_lidx *strs, t_ul n, int fd);
+void			ft_putnbr_ull_hexa_fd(t_lidx *strs, t_ull n, int fd);
+void			ft_putnbr_uchar_hexa_fd(t_lidx *strs, unsigned char n, int fd);
+void			ft_putnbr_ushort_hexa_fd(t_lidx *strs,\
+				unsigned short n, int fd);
 
 /*
 ** GET SIZE

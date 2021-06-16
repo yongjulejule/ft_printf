@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_ull_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_ui_hexa.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:02:16 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 01:58:25 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				ft_dgt_ull_len(t_ull nbr, unsigned int base)
+int				ft_dgt_ui_len(t_ui nbr, unsigned int base)
 {
 	int cnt;
 
@@ -29,23 +29,22 @@ int				ft_dgt_ull_len(t_ull nbr, unsigned int base)
 	return (cnt);
 }
 
-static	void	make_nbr(t_ull n, int fd)
+static	void	make_nbr(t_lidx *strs, t_ui n, int fd)
 {
-	int		digit;
 	char	c;
 
 	if (n == 0)
 		return ;
-	digit = n % 10;
-	if (digit < 0)
-		digit *= -1;
-	c = digit + '0';
-	n /= 10;
-	make_nbr(n, fd);
+	if (strs->txt[strs->opts.spec] == 'X')
+		c = HEX_L[n % 16];
+	else
+		c = HEX_S[n % 16];
+	n /= 16;
+	make_nbr(strs, n, fd);
 	write(fd, &c, 1);
 }
 
-void			ft_putnbr_ull_fd(t_ull n, int fd)
+void			ft_putnbr_ui_hexa_fd(t_lidx *strs, t_ui n, int fd)
 {
 	if (fd < 0)
 		return ;
@@ -54,5 +53,5 @@ void			ft_putnbr_ull_fd(t_ull n, int fd)
 		write(fd, "0", 1);
 		return ;
 	}
-	make_nbr(n, fd);
+	make_nbr(strs, n, fd);
 }

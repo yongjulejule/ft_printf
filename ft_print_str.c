@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 21:00:25 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 23:23:45 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ static	void	print_str(va_list ap, t_lidx *strs, int len)
 static	int		precision_in_str(va_list ap, t_lidx *strs)
 {
 	va_list	cp_ap;
+	wchar_t	*utf_s;
 	int		len;
 	int		tmplen;
-	wchar_t	*utf_s;
 
 	len = get_precision_len(ap, strs);
 	va_copy(cp_ap, ap);
