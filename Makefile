@@ -30,11 +30,19 @@ SRCS = \
 	   lsts.c\
 	   parse.c\
 	   ft_utflen.c\
+	   ft_print_hash.c\
+	   ft_print_hexa.c\
+	   ft_print_hexa_nbr.c\
+	   ft_putnbr_uchar_hexa_fd.c\
+	   ft_putnbr_ui_hexa_fd.c\
+	   ft_putnbr_ul_hexa_fd.c\
+	   ft_putnbr_ull_hexa_fd.c\
+	   ft_putnbr_ushort_hexa_fd.c\
 
 OBJS = ${SRCS:.c=.o}
 
 BONUS_SRCS = ${SRCS}\
-		
+
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 #%.o : %.c
@@ -53,6 +61,7 @@ $(LIB):
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 	cd $(LIBDIR); make clean; cd ..
+
 .PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
@@ -68,5 +77,6 @@ bonus: $(BONUS_OBJS)
 debug: clean 
 	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
 	./a.out
+
 leaks: clean
 	$(CC) -g $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)

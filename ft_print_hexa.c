@@ -6,13 +6,28 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:21:41 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 07:33:31 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		precision_in_hexa(va_list ap, t_lidx *strs)
+static	int		width_in_hexa(va_list ap, t_lidx *strs)
+{
+	int	width_len;
+
+	width_len = get_width_len(ap, strs);
+	if (ft_memchr(strs->txt, '#', (size_t)(strs->opts.flags + 1)))
+	{
+		if (width_len < 0)
+			width_len += 2;
+		else
+			width_len -= 2;
+	}
+	return (width_len);
+}
+
+static	int		precision_in_hexa(va_list ap, t_lidx *strs)
 {
 	va_list	cp_ap;
 	int		len;
@@ -36,7 +51,7 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len)
 	idx = 0;
 	if (!(ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
 			&& strs->opts.precision == strs->opts.width))
-		ft_print_hash(ap, strs);
+		ft_print_hash(strs);
 	va_copy(cp_ap, ap);
 	dgt_len = get_nbr_len(ap, strs, 16);
 	while (dgt_len < len)
@@ -54,7 +69,7 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 	int		precision_len;
 	int		width_len;
 
-	width_len = get_width_len(ap, strs);
+	width_len = width_in_hexa(ap, strs);
 	precision_len = precision_in_hexa(ap, strs);
 	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1))\
 			|| width_len < 0)
@@ -69,7 +84,7 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 		if (ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
 				&& strs->opts.precision == strs->opts.width)
 		{
-			width_len -= ft_print_hash(ap, strs);
+			ft_print_hash(strs);
 			ft_print_width(strs, '0', width_len - precision_len);
 		}
 		else

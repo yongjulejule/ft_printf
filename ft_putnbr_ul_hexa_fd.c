@@ -6,28 +6,11 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:59:23 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 03:03:39 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int				ft_dgt_ul_len(t_ul nbr, unsigned int base)
-{
-	int cnt;
-
-	cnt = 0;
-	if (base < 2)
-		return (0);
-	if (nbr < 0)
-		nbr *= -1;
-	while (nbr)
-	{
-		nbr /= base;
-		cnt++;
-	}
-	return (cnt);
-}
 
 static	void	make_nbr(t_lidx *strs, t_ul n, int fd)
 {
