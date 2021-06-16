@@ -576,6 +576,8 @@ int main()
 	ft_printf("MY  : |%#+--*.*llX|\n", 100, 5, 42424242424);
 	printf("LIB : |%#+--*.*llX|\n", 100, 5, 42424242424);
 	int aa = 424242;
+	ft_printf("MY  : |%#+0*p|\n", 100, aa);
 	printf("LIB : |%#+0*p|\n", 100, aa);
+	ft_printf("MY  : |%p|\n", aa);
 	printf("LIB : |%p|\n", aa);
 }

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 07:33:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 08:17:59 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len)
 
 	idx = 0;
 	if (!(ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
-			&& strs->opts.precision == strs->opts.width))
+			&& ((strs->opts.precision == strs->opts.width)\
+			|| (strs->txt[strs->opts.spec] == 'p'))))
 		ft_print_hash(strs);
 	va_copy(cp_ap, ap);
 	dgt_len = get_nbr_len(ap, strs, 16);
@@ -71,8 +72,7 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 
 	width_len = width_in_hexa(ap, strs);
 	precision_len = precision_in_hexa(ap, strs);
-	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1))\
-			|| width_len < 0)
+	if (ft_memchr(strs->txt, '-', strs->opts.flags + 1) || width_len < 0)
 	{
 		if (width_len < 0)
 			width_len *= -1;
@@ -81,8 +81,8 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 	}
 	else
 	{
-		if (ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
-				&& strs->opts.precision == strs->opts.width)
+		if ((ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
+			&& strs->opts.precision == strs->opts.width))
 		{
 			ft_print_hash(strs);
 			ft_print_width(strs, '0', width_len - precision_len);
