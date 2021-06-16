@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 13:55:07 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:43:22 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 # define UTF_8_2 0x7FF
 # define UTF_8_3 0xFFFF
 # define UTF_8_4 0x1FFFFF
-# define UTF_MASK_1 0x7F
-# define UTF_MASK_2 0xDF
-# define UTF_MASK_3 0xE0
-# define UTF_MASK_4 0xF7
 # define UTF_MASK_0 0x80
+# define UTF_MASK_1 0x70
+# define UTF_MASK_2 0xC0
+# define UTF_MASK_3 0xE0
+# define UTF_MASK_4 0xF0
 
 /*
 ** DEFINE TYPES
@@ -122,6 +122,7 @@ void			ft_putnbr_ushort_fd(unsigned short n, int fd);
 void			ft_putnbr_ul_fd(t_ul n, int fd);
 void			ft_putnbr_ull_fd(t_ull n, int fd);
 void			ft_putnbr_ui_fd(t_ui n, int fd);
+void			ft_putchar_utf_fd(t_ui uni, int fd);
 
 /*
 ** GET SIZE

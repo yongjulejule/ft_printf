@@ -8,8 +8,7 @@ int main()
 	printf("============================!!!MY PRINTF!!!============================\n");
 	printf("============================This is String!============================\n");
 	ft_printf("MY  : |%*.*s|\n", 100, 5, "hello printf");
-	printf("LIB : |%*.*s|\n", 100, 5, "hello printf");
-	ft_printf("MY  : |%*.s|\n", 100, "hello printf");
+	printf("LIB : |%*.*s|\n", 100, 5, "hello printf"); ft_printf("MY  : |%*.s|\n", 100, "hello printf");
 	printf("LIB : |%*.s|\n", 100, "hello printf");
 	ft_printf("MY  : |%*.7s|\n", 100, "hello printf");
 	printf("LIB : |%*.7s|\n", 100, "hello printf");

@@ -20,7 +20,7 @@ int main()
 	printf("%x\n", (unsigned char)(b>>8));
 	printf("%x\n", (unsigned char)(b>>12));
 	printf("\n\n\n");
-	printf("bit cal::%lc\n\n\n", L'오');
+	printf("bit cal::%lc\n\n\n", L'🔥');
 	wchar_t c_1 = L'오';
 	printf("\n\n%x\n\n", c_1);
 

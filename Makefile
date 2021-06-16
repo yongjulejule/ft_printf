@@ -26,6 +26,7 @@ SRCS = ft_printf.c\
 	   ft_putnbr_ull_fd.c\
 	   ft_putnbr_ushort_fd.c\
 	   ft_putnbr_abs_fd.c\
+	   ft_putstr_uft_fd.c\
 	   is_this_length.c\
 
 OBJS = ${SRCS:.c=.o}

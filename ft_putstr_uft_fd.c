@@ -6,26 +6,25 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:14:41 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 15:02:15 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 15:26:33 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void	putchar_utf_4(t_ui uni, int fd)
 {
 	unsigned char	bits[4];
 	int				idx;
 
-	idx = 0;
-	while (idx < 3)
+	idx = 3;
+	while (idx > 0)
 	{
-		bits[idx] = (unsigned char)(UTF_MASK_0 | uni);
+		bits[idx] = (unsigned char)(UTF_MASK_0 | (uni & 0x3F));
 		uni >>= 6;
-		idx++;
+		idx--;
 	}
-	bits[3] = (unsigned char)(UTF_MASK_3 | uni);
+	bits[0] = (unsigned char)(UTF_MASK_4 | uni);
 	idx = 0;
 	while (idx < 4)
 	{
@@ -59,9 +58,9 @@ static void	putchar_utf_2(t_ui uni, int fd)
 {
 	unsigned char	bits[2];
 
-	bits[0] = (unsigned char)(UTF_MASK_0 | uni);
+	bits[1] = (unsigned char)(UTF_MASK_0 | (uni & 0x3F));
 	uni >>= 6;
-	bits[1] = (unsigned char)(UTF_MASK_2 | uni);
+	bits[0] = (unsigned char)(UTF_MASK_2 | uni);
 	write(fd, &bits[0], 1);
 	write(fd, &bits[1], 1);
 }
@@ -83,18 +82,4 @@ void	ft_putchar_utf_fd(t_ui uni, int fd)
 		putchar_utf_4(uni, fd);
 	else
 		ft_putchar_fd(uni, fd);
-}
-
-int main()
-{
-	int *a = L"우와 이게 되네\n";
-	int idx;
-
-	idx = 0;
-	while (a[idx])
-	{
-		ft_putchar_utf_fd(a[idx], 1);
-		idx++;
-	}
-	ft_putchar_utf_fd(L'오', 1);
 }
