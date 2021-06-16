@@ -31,6 +31,7 @@ int main()
 	my_char[1] = (unsigned char)152;
 	my_char[2] = (unsigned char)164;
 	int j = 0;
+	write(1, "\n", 1);
 	while (j < 3)
 	{	
 		write(1, &my_char[j], 1);

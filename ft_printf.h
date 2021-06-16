@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 12:45:09 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/16 13:55:07 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define UTF_MASK_2 0xDF
 # define UTF_MASK_3 0xE0
 # define UTF_MASK_4 0xF7
-# define UTF_MASK_0 0xB0
+# define UTF_MASK_0 0x80
 
 /*
 ** DEFINE TYPES
