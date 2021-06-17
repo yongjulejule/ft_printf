@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 03:37:27 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 14:31:31 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@
 ** MY MECRO
 */
 
-# define IS_ERR -2
 # define IS_NOT_FLAG -1
-# define IS_FLAGS 1
+# define IS_FLAGS 0
 # define ERROR_FLAG 0
 # define SUCCESS_FLAG 1
-# define ASTERISK -2
 # define SPECS "diunpxXcs%"
 # define HEX_S "0123456789abcdef"
 # define HEX_L "0123456789ABCDEF"
@@ -71,7 +69,7 @@ typedef struct	s_opts
 
 typedef struct	s_lidx
 {
-	int				order;
+	int				info;
 	char			*txt;
 	struct s_lidx	*next;
 	struct s_opts	opts;
@@ -93,7 +91,7 @@ void			check_flags(t_lidx *str);
 void			ft_lidxadd_back(t_lidx **lst, t_lidx *newnode);
 void			ft_lidxclear(t_lidx **lst, void (*del)(void*));
 void			ft_lidxdelone(t_lidx *lst, void (*del)(void*));
-t_lidx			*ft_lidxnew(void *txt, int order);
+t_lidx			*ft_lidxnew(void *txt, int info);
 t_lidx			*ft_lidxlast(t_lidx *lst);
 
 /*
@@ -127,7 +125,7 @@ void			ft_putnbr_ushort_fd(unsigned short n, int fd);
 void			ft_putnbr_ul_fd(t_ul n, int fd);
 void			ft_putnbr_ull_fd(t_ull n, int fd);
 void			ft_putnbr_ui_fd(t_ui n, int fd);
-void			ft_putchar_utf_fd(t_ui uni, int fd);
+void			ft_putchar_utf_fd(t_lidx *strs, t_ui uni, int fd);
 void			ft_putnbr_ui_hexa_fd(t_lidx *strs, t_ui n, int fd);
 void			ft_putnbr_ul_hexa_fd(t_lidx *strs, t_ul n, int fd);
 void			ft_putnbr_ull_hexa_fd(t_lidx *strs, t_ull n, int fd);
@@ -139,15 +137,15 @@ void			ft_putnbr_ushort_hexa_fd(t_lidx *strs,\
 ** GET SIZE
 */
 
-int				ft_dgt_char_len(char nbr, unsigned int base);
-int				ft_dgt_uchar_len(unsigned char nbr, unsigned int base);
-int				ft_dgt_l_len(long nbr, unsigned int base);
-int				ft_dgt_ll_len(t_ll nbr, unsigned int base);
-int				ft_dgt_short_len(short nbr, unsigned int base);
-int				ft_dgt_ushort_len(unsigned short nbr, unsigned int base);
-int				ft_dgt_ul_len(t_ul nbr, unsigned int base);
-int				ft_dgt_ull_len(t_ull nbr, unsigned int base);
-int				ft_dgt_ui_len(t_ui nbr, unsigned int base);
+int				ft_dgt_char_len(char nbr, t_ui base);
+int				ft_dgt_uchar_len(unsigned char nbr, t_ui base);
+int				ft_dgt_l_len(long nbr, t_ui base);
+int				ft_dgt_ll_len(t_ll nbr, t_ui base);
+int				ft_dgt_short_len(short nbr, t_ui base);
+int				ft_dgt_ushort_len(unsigned short nbr, t_ui base);
+int				ft_dgt_ul_len(t_ul nbr, t_ui base);
+int				ft_dgt_ull_len(t_ull nbr, t_ui base);
+int				ft_dgt_ui_len(t_ui nbr, t_ui base);
 int				get_nbr_len(va_list ap, t_lidx *strs, int base);
 int				get_sign(va_list ap, t_lidx *strs);
 int				get_length_flag(t_lidx *strs);
@@ -155,4 +153,6 @@ size_t			ft_utf_last_len(wchar_t *utf_str, int len);
 size_t			ft_utf_byte_len(wchar_t *utf_str);
 size_t			ft_utf_put_byte(wchar_t utf_str, int len);
 size_t			ft_utf_byte_chr_len(va_list ap);
+
+void			ft_handle_n_spec(va_list ap, t_lidx *strs, t_ull total_len);
 #endif

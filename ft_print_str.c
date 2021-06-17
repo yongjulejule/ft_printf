@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 23:23:45 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:35:37 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ static	void	print_utf_str(va_list ap, t_lidx *strs, int len)
 {
 	wchar_t	*utf_s;
 	int		idx;
+	int		back_len;
 
+	back_len = len;
 	idx = 0;
 	utf_s = va_arg(ap, wchar_t*);
 	while (idx < len)
 	{
 		len = ft_utf_put_byte(utf_s[idx], len);
-		ft_putchar_utf_fd(utf_s[idx], 1);
+		ft_putchar_utf_fd(strs, utf_s[idx], 1);
 		idx++;
 	}
-	strs->order = len;
 }
 
 static	void	print_str(va_list ap, t_lidx *strs, int len)
@@ -44,7 +45,7 @@ static	void	print_str(va_list ap, t_lidx *strs, int len)
 			ft_putchar_fd(s[idx], 1);
 			idx++;
 		}
-		strs->order = len;
+		strs->info += idx;
 	}
 }
 

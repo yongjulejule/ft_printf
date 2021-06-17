@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:14:20 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:05:25 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void		ft_print_sign(va_list ap, t_lidx *strs)
 		else
 			return ;
 	}
+	strs->info += 1;
 }

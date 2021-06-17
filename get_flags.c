@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 03:26:14 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 10:30:38 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static	void	check_spec(t_lidx *str)
 	}
 	idx--;
 	str->opts.spec = idx;
-	str->order = IS_NOT_FLAG;
+	str->info = IS_NOT_FLAG;
 }
 
 static	void	check_length(t_lidx *str)

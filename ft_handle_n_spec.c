@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hash.c                                    :+:      :+:    :+:   */
+/*   ft_handle_n_spec.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 11:04:40 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/17 13:51:00 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/17 14:45:38 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_hash(t_lidx *strs)
+void	ft_handle_n_spec(va_list ap, t_lidx *strs, t_ull total_len)
 {
-	if (!ft_memchr(strs->txt, '#', (size_t)(strs->opts.flags + 1)))
-		if (strs->txt[strs->opts.spec] != 'p')
-			return ;
-	if (strs->txt[strs->opts.spec] == 'X')
-		ft_putstr_fd("0X", 1);
+	int	flag;
+
+	flag = get_length_flag(strs);
+	if (flag == 1)
+		get_uchar_byte(ap, total_len);
+	else if (flag == 2)
+		get_ushort_byte(ap, total_len);
+	else if (flag == 3)
+		get_ul_byte(ap, total_len);
+	else if (flag == 4)
+		get_ull_byte(ap, total_len);
 	else
-		ft_putstr_fd("0x", 1);
-	strs->info += 2;
+		get_ui_byte(ap, total_len);
 }

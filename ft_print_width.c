@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:46:10 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/14 19:57:46 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:03:59 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	ft_print_width(t_lidx *strs, char c, int len)
 	{
 		ft_putchar_fd(c, 0);
 		idx++;
+		strs->info++;
 	}
-	strs->order = len;
 }

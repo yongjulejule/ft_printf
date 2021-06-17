@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hash.c                                    :+:      :+:    :+:   */
+/*   get_byte.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 11:04:40 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/17 14:48:13 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/17 14:50:20 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_hash(t_lidx *strs)
+void	get_uchar_byte(ap, total_len)
 {
-	if (!ft_memchr(strs->txt, '#', (size_t)(strs->opts.flags + 1)))
-		if (strs->txt[strs->opts.spec] != 'p')
-			return ;
-	if (strs->txt[strs->opts.spec] == 'X')
-		ft_putstr_fd("0X", 1);
-	else
-		ft_putstr_fd("0x", 1);
-	strs->info += 2;
+}
+void	get_ushort_byte(ap, total_len)
+{
+}
+void	get_ul_byte(ap, total_len)
+{
+}
+void	get_ull_byte(ap, total_len)
+{
+}
+void	get_ui_byte(ap, total_len)
+{
 }

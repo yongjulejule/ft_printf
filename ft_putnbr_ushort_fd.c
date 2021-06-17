@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:02:41 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 10:27:08 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				ft_dgt_ushort_len(unsigned short nbr, unsigned int base)
+int				ft_dgt_ushort_len(unsigned short nbr, t_ui base)
 {
 	int cnt;
 

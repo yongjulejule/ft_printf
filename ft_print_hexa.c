@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 08:17:59 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:04:12 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len)
 	}
 	ft_print_hexa_nbr(cp_ap, strs);
 	va_end(cp_ap);
-	strs->order += len;
+	strs->info += dgt_len;
 }
 
 void			ft_print_hexa(va_list ap, t_lidx *strs)

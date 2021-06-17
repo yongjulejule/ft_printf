@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:14:41 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/16 21:19:43 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:33:45 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,31 @@ static	void	putchar_utf_1(t_ui uni, int fd)
 	write(fd, &uni, 1);
 }
 
-void			ft_putchar_utf_fd(t_ui uni, int fd)
+void			ft_putchar_utf_fd(t_lidx *strs, t_ui uni, int fd)
 {
 	if (uni <= UTF_8_1)
+	{
 		putchar_utf_1(uni, fd);
+		strs->info += 1;
+	}
 	else if (uni <= UTF_8_2)
+	{
 		putchar_utf_2(uni, fd);
+		strs->info += 2;
+	}
 	else if (uni <= UTF_8_3)
+	{
 		putchar_utf_3(uni, fd);
+		strs->info += 3;
+	}
 	else if (uni <= UTF_8_4)
+	{
 		putchar_utf_4(uni, fd);
+		strs->info += 4;
+	}
 	else
+	{
 		ft_putchar_fd(uni, fd);
+		strs->info += 1;
+	}
 }

@@ -6,33 +6,33 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:22:43 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 02:55:38 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 14:30:17 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	print_decimal(va_list ap, t_lidx *strs)
+static	int	print_decimal(va_list ap, t_lidx *strs, t_ull total_len)
 {
 	if (strs->txt[strs->opts.spec] == 'n')
-		ft_putnbr_fd(-1, 1);
+		ft_handle_n_spec(ap, strs, total_len);
 	else
-	{
 		ft_print_deci(ap, strs);
-	}
-	return (0);
+	return (strs->info);
 }
 
 static	int	print_hex(va_list ap, t_lidx *strs)
 {
 	ft_print_hexa(ap, strs);
-	return (0);
+	return (strs->info);
 }
 
 static	int	print_chrs(va_list ap, t_lidx *strs)
 {
-	if (strs->txt[strs->opts.spec] == '%')
+	if (strs->txt[strs->opts.spec] == '%') {
 		ft_putchar_fd('%', 1);
+		strs->info += 1;
+	}
 	else
 	{
 		if (strs->txt[strs->opts.spec] == 'c')
@@ -40,10 +40,10 @@ static	int	print_chrs(va_list ap, t_lidx *strs)
 		else
 			ft_print_str(ap, strs);
 	}
-	return (1);
+	return (strs->info);
 }
 
-static	int	print_args(va_list ap, t_lidx *strs)
+static	int	print_args(va_list ap, t_lidx *strs, t_ull total_len)
 {
 	int idx;
 	int len;
@@ -55,7 +55,7 @@ static	int	print_args(va_list ap, t_lidx *strs)
 		if (strs->txt[strs->opts.spec] == SPECS[idx])
 		{
 			if (idx < 4)
-				len = print_decimal(ap, strs);
+				len = print_decimal(ap, strs, total_len);
 			else if (idx < 7)
 				len = print_hex(ap, strs);
 			else
@@ -73,18 +73,18 @@ static	int	print_args(va_list ap, t_lidx *strs)
 
 int			go_print(va_list ap, t_lidx *strs)
 {
-	int len;
+	t_ull len;
 
 	len = 0;
 	while (strs)
 	{
-		if (strs->order == IS_NOT_FLAG)
+		if (strs->info == IS_NOT_FLAG)
 		{
 			ft_putstr_fd(strs->txt, 1);
 			len += ft_strlen(strs->txt);
 		}
 		else
-			print_args(ap, strs);
+			len += print_args(ap, strs, len);
 		strs = strs->next;
 	}
 	return (len);

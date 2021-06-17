@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 11:07:02 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 10:31:41 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int				parsing(char *format, t_lidx **strs)
 		return (ERROR_FLAG);
 	(*strs) = ft_lidxnew(*line, IS_NOT_FLAG);
 	if (*format == '%')
-		(*strs)->order = 0;
+		(*strs)->info = 0;
 	idx = 1;
 	while (*(line + idx))
 	{

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:03:23 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:03:42 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len)
 	}
 	ft_print_deci_nbr(cp_ap, strs);
 	va_end(cp_ap);
-	strs->order += len;
+	strs->info += dgt_len;
 }
 
 void			ft_print_deci(va_list ap, t_lidx *strs)
@@ -80,8 +80,7 @@ void			ft_print_deci(va_list ap, t_lidx *strs)
 
 	width_len = width_in_deci(ap, strs);
 	precision_len = precision_in_deci(ap, strs);
-	if (ft_memchr(strs->txt, '-', (size_t)(strs->opts.flags + 1))\
-			|| width_len < 0)
+	if (ft_memchr(strs->txt, '-', (strs->opts.flags + 1)) || width_len < 0)
 	{
 		if (width_len < 0)
 			width_len *= -1;
@@ -90,7 +89,7 @@ void			ft_print_deci(va_list ap, t_lidx *strs)
 	}
 	else
 	{
-		if (ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
+		if (ft_memchr(strs->txt, '0', (strs->opts.flags + 1))
 				&& strs->opts.precision == strs->opts.width)
 		{
 			ft_print_sign(ap, strs);
