@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 17:16:22 by yongjule          #+#    #+#             */
-/*   Updated: 2021/05/11 21:59:41 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 03:09:05 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,6 @@ int		ft_atoi(const char *str)
 	sign = 1;
 	num = 0;
 	str = go_to_digit((char*)str, &sign);
-	if (ft_strlen(str) >= 20 && *(str + 20) >= '0' && *(str + 20) <= '9')
-	{
-		if (sign < 0)
-			return (0);
-		else
-			return (-1);
-	}
 	while (*str >= '0' && *str <= '9')
 		num = 10 * num + (*str++ - '0');
 	if (num > 9223372036854775807)

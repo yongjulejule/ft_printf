@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 14:31:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/18 11:41:35 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,4 +155,9 @@ size_t			ft_utf_put_byte(wchar_t utf_str, int len);
 size_t			ft_utf_byte_chr_len(va_list ap);
 
 void			ft_handle_n_spec(va_list ap, t_lidx *strs, t_ull total_len);
+void			get_uchar_byte(va_list ap, t_ull total_len);
+void			get_ushort_byte(va_list ap, t_ull total_len);
+void			get_ul_byte(va_list ap, t_ull total_len);
+void			get_ull_byte(va_list ap, t_ull total_len);
+void			get_ui_byte(va_list ap, t_ull total_len);
 #endif

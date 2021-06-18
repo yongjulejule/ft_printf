@@ -56,8 +56,8 @@ BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 .PHONY: all
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	ar rc $@ $(OBJS)
+$(NAME) : $(OBJS) $(BONUS_OBJS)
+	ar rc $@ $(OBJS) $(BONUS_OBJS)
 
 .PHONY: clean
 clean:
@@ -70,6 +70,6 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
-.PHONY: bonus
-bonus: $(BONUS_OBJS)
-	ar cr $(NAME) $(BONUS_OBJS)
+#.PHONY: bonus
+#bonus: $(BONUS_OBJS)
+#	ar cr $(NAME) $(BONUS_OBJS)

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 11:03:42 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 03:36:20 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ static int		width_in_deci(va_list ap, t_lidx *strs)
 		{
 			if (len < 0)
 				len++;
-			else
+			else if (len > 0)
 				len--;
+			else
+				len = 0;
 		}
 	va_end(cp_ap);
 	return (len);
@@ -43,6 +45,8 @@ static int		precision_in_deci(va_list ap, t_lidx *strs)
 	int		tmplen;
 
 	len = get_precision_len(ap, strs);
+	if (len == 0)
+		return (len);
 	va_copy(cp_ap, ap);
 	tmplen = get_nbr_len(cp_ap, strs, 10);
 	if (len < tmplen)
@@ -68,7 +72,8 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len)
 		ft_putchar_fd('0', 1);
 		dgt_len++;
 	}
-	ft_print_deci_nbr(cp_ap, strs);
+	if (len != 0)
+		ft_print_deci_nbr(cp_ap, strs);
 	va_end(cp_ap);
 	strs->info += dgt_len;
 }

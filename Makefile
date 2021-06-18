@@ -38,6 +38,8 @@ SRCS = \
 	   ft_putnbr_ul_hexa_fd.c\
 	   ft_putnbr_ull_hexa_fd.c\
 	   ft_putnbr_ushort_hexa_fd.c\
+	   ft_handle_n_spec.c\
+	   get_byte.c\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -52,29 +54,29 @@ BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 all: $(NAME) #clean
 
 $(NAME) : $(OBJS) $(LIB)
-	ar rc $@ $(OBJS) $(LIBDIR)/$(LIB)
+	ar rc $@ $(OBJS) 
 
 $(LIB):
-	cd $(LIBDIR); make bonus; cd ..
+	make -C $(LIBDIR)
+	cp $(LIBDIR)/$(LIB) $(NAME)
 
 .PHONY: clean
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
-	cd $(LIBDIR); make clean; cd ..
+	make -C $(LIBDIR) clean
 
 .PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
-	cd $(LIBDIR); rm -f $(LIB); cd ..
+	make -C $(LIBDIR) fclean
 
 .PHONY: re
 re: fclean all
 
 .PHONY: bonus
-bonus: $(BONUS_OBJS)
-	ar cr $(NAME) $(BONUS_OBJS)
+bonus: $(NAME) 
 
-debug: clean 
+debug: all clean 
 	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
 	./a.out
 

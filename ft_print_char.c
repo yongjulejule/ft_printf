@@ -6,13 +6,13 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:38:05 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 11:34:28 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/18 11:49:36 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	void	print_char(va_list ap, t_lidx *strs, int len)
+static	void	print_char(va_list ap, t_lidx *strs)
 {
 	char	c;
 	wchar_t	wc;
@@ -66,7 +66,7 @@ void			ft_print_char(va_list ap, t_lidx *strs)
 	{
 		if (width_len < 0)
 			width_len *= -1;
-		print_char(ap, strs, 1);
+		print_char(ap, strs);
 		ft_print_width(strs, ' ', width_len - 1);
 	}
 	else
@@ -75,6 +75,6 @@ void			ft_print_char(va_list ap, t_lidx *strs)
 			ft_print_width(strs, '0', width_len - 1);
 		else
 			ft_print_width(strs, ' ', width_len - 1);
-		print_char(ap, strs, 1);
+		print_char(ap, strs);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:43:57 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 01:08:54 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 03:05:49 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static	int	get_8bit_len(va_list ap, t_lidx *strs, int base)
 
 int			get_nbr_len(va_list ap, t_lidx *strs, int base)
 {
-	int cnt;
+	int		cnt;
 
 	if ((strs->opts.length != strs->opts.precision
 			&& strs->txt[strs->opts.precision + 1] == 'l'))

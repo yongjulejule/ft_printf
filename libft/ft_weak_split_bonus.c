@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_weak_split.c                                    :+:      :+:    :+:   */
+/*   ft_weak_split_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 18:13:39 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/13 09:17:51 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 01:44:01 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ static	char	**alloc_mem(char **tmp, int start, int i, int idx)
 		while (0 <= idx)
 		{
 			free(tmp[idx]);
+			tmp[idx] = NULL;
 			idx--;
 		}
 		free(tmp);
+		tmp = NULL;
 		return (NULL);
 	}
 	return (tmp);
@@ -71,9 +73,8 @@ char			**ft_weak_split(char const *s, char c)
 		start = i;
 		if (check_chr(*(s + i), c))
 			i += 1;
-		else
-			while (*(s + i) && !check_chr(*(s + i), c))
-				i++;
+		while (*(s + i) && !check_chr(*(s + i), c))
+			i++;
 		if (!(tmp = alloc_mem(tmp, start, i, idx)))
 			return (NULL);
 		ft_strlcpy(tmp[idx++], (char*)(s + start), i - start + 1);

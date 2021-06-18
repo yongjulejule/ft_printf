@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 11:35:37 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:37:58 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static	void	print_utf_str(va_list ap, t_lidx *strs, int len)
 	back_len = len;
 	idx = 0;
 	utf_s = va_arg(ap, wchar_t*);
+	if (!utf_s)
+		utf_s = L"(null)";
 	while (idx < len)
 	{
 		len = ft_utf_put_byte(utf_s[idx], len);
@@ -40,12 +42,14 @@ static	void	print_str(va_list ap, t_lidx *strs, int len)
 	else
 	{
 		s = va_arg(ap, char*);
+		if (!s)
+			s = "(null)";
 		while (idx < len)
 		{
 			ft_putchar_fd(s[idx], 1);
+			strs->info++;
 			idx++;
 		}
-		strs->info += idx;
 	}
 }
 
@@ -53,6 +57,7 @@ static	int		precision_in_str(va_list ap, t_lidx *strs)
 {
 	va_list	cp_ap;
 	wchar_t	*utf_s;
+	char	*s;
 	int		len;
 	int		tmplen;
 
@@ -61,12 +66,21 @@ static	int		precision_in_str(va_list ap, t_lidx *strs)
 	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
 	{
 		utf_s = va_arg(cp_ap, wchar_t*);
-		tmplen = ft_utf_byte_len(utf_s);
+		if (!utf_s)
+			tmplen = 6;
+		else
+			tmplen = ft_utf_byte_len(utf_s);
 		if (len > 0 && len <= tmplen)
 			len -= ft_utf_last_len(utf_s, len);
 	}
 	else
-		tmplen = ft_strlen(va_arg(cp_ap, char*));
+	{
+		s = va_arg(cp_ap, char*);
+		if (!s)
+			tmplen = 6;
+		else
+			tmplen = ft_strlen(s);
+	}
 	if (len < 0 || len > tmplen)
 		len = tmplen;
 	va_end(cp_ap);
