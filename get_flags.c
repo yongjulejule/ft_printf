@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 05:10:39 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 20:05:25 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,12 @@ void			check_flags(t_lidx *str)
 {
 	int idx;
 
-	idx = 0;
+	if (str->txt[0] != '%')
+	{
+		str->info = IS_NOT_FLAG;
+		return ;
+	}
+	idx = 1;
 	while (str->txt[idx] == '-'\
 			|| str->txt[idx] == '+'\
 			|| str->txt[idx] == ' '\

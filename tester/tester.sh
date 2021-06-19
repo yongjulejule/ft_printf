@@ -54,14 +54,14 @@ echo -ne '1\n1\n1\n1\n1\n1\n1\n' | bash run.sh >> ../test_result.txt
 cd ..
 
 
-# ########## 42TESTERS-PRINTF ##########
-#echo -e '######### 42TESTERS-PRINTF ##########' >> test_result.txt
-#git clone https://github.com/Mazoise/42TESTERS-PRINTF.git
-#cd 42TESTERS-PRINTF
-#bash runtest.sh
-#echo "#####42TESTS-PRINTF#####" >> ../test_result.txt
-#cat diff.txt >> ../test_result.txt
-#cd ..
+ ########## 42TESTERS-PRINTF ##########
+echo -e '######### 42TESTERS-PRINTF ##########' >> test_result.txt
+git clone https://github.com/Mazoise/42TESTERS-PRINTF.git
+cd 42TESTERS-PRINTF
+bash runtest.sh
+echo "#####42TESTS-PRINTF#####" >> ../test_result.txt
+cat diff.txt >> ../test_result.txt
+cd ..
 
 # ########## PFT ##########
 echo -e '#########PFT##########' >> test_result.txt

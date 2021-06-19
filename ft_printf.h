@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/18 11:41:35 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 17:31:33 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int				ft_printf(const char *formet, ...);
 
 int				parsing(char *formet, t_lidx **strs);
 void			check_flags(t_lidx *str);
+int				ft_split_for_pf(char *format, t_lidx **strs);
 
 /*
 ** HANDLE LISTS

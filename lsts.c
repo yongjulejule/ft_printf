@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 11:07:30 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/17 10:31:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 19:48:30 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	ft_lidxclear(t_lidx **lst, void (*del)(void*))
 		{
 			*lst = tmp;
 			tmp = tmp->next;
-			del((*lst)->txt);
+			if (!((*lst)->txt))
+				del((*lst)->txt);
 			free(*lst);
 			*lst = NULL;
 			if (tmp->next == NULL)
@@ -59,7 +60,8 @@ void	ft_lidxdelone(t_lidx *lst, void (*del)(void*))
 {
 	if (lst == NULL)
 		return ;
-	del(lst->txt);
+	if (!(lst->txt))
+		del(lst->txt);
 	free(lst);
 	lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:22:43 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/18 21:40:12 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 14:33:26 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,10 @@ static	int	print_hex(va_list ap, t_lidx *strs)
 
 static	int	print_chrs(va_list ap, t_lidx *strs)
 {
-	if (strs->txt[strs->opts.spec] == '%') {
-		ft_putchar_fd('%', 1);
-		strs->info += 1;
-	}
+	if (strs->txt[strs->opts.spec] == 'c' || strs->txt[strs->opts.spec] == '%')
+		ft_print_char(ap, strs);
 	else
-	{
-		if (strs->txt[strs->opts.spec] == 'c')
-			ft_print_char(ap, strs);
-		else
-			ft_print_str(ap, strs);
-	}
+		ft_print_str(ap, strs);
 	return (strs->info);
 }
 

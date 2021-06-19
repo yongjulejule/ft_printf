@@ -40,6 +40,7 @@ SRCS = \
 	   ft_putnbr_ushort_hexa_fd.c\
 	   ft_handle_n_spec.c\
 	   get_byte.c\
+	   ft_split_for_pf.c\
 
 OBJS = ${SRCS:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:38:05 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/18 11:49:36 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 14:37:13 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ static	void	print_char(va_list ap, t_lidx *strs)
 	{
 		wc = va_arg(ap, int);
 		ft_putchar_utf_fd(strs, wc, 1);
+		return ;
 	}
-	else
-	{
-		c = va_arg(ap, int);
+	c = va_arg(ap, int);
+	if (strs->txt[strs->opts.spec] == 'c')
 		ft_putchar_fd(c, 1);
-		strs->info += 1;
-	}
+	else
+		ft_putchar_fd('%', 1);
+	strs->info += 1;
 }
 
 static	int		width_in_char(va_list ap, t_lidx *strs, int width_len)
