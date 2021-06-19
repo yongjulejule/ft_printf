@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:21:01 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 20:05:25 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 20:31:24 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static	void	check_spec(t_lidx *str)
 		if (str->txt[idx] == SPECS[jdx])
 		{
 			str->opts.spec = idx;
+			str->info = IS_FLAGS;
 			return ;
 		}
 		jdx++;

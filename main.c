@@ -626,4 +626,25 @@ int main()
 	ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", -1, -1, -1, -1,-1,"asd",'c',-1,-1,-1,-1);
 	printf("%0 *.*%", 10, 10);
 	ft_printf("%0 *.*%", 10, 10);
+	printf("===================================DEBUGING WITH TESTER=============================\n");
+	ft_printf("MY  d:");
+	ft_printf("-->|%-4.d|<--\n", -135);
+	ft_printf("LIB d:");
+	printf("-->|%-4.d|<--\n", -135);
+	ft_printf("MY  x:");
+	ft_printf("-->|%#0x|<--\n", aa);
+	ft_printf("LIB x:");
+	printf("-->|%#0x|<--\n", aa);
+	printf("-->|%.0d|<--\n", aa);
+	ft_printf("-->|%.0d|<--\n", aa);
+	int d = -135;
+	ft_printf("-->|%0*d|<--\n", -4, d);
+	printf("-->|%0*d|<--\n", -4, d);
+	ft_printf("-->|%0*d|<--\n", -3, d);
+	printf("-->|%0*d|<--\n", -3, d);
+	d = 198;
+	ft_printf("-->|% 0*d|<--\n", -3, d);
+	printf("-->|% 0*d|<--\n", -3, d);
+	ft_printf("-->|% 0*d|<--\n", -2, d);
+	printf("-->|% 0*d|<--\n", -2, d);
 }

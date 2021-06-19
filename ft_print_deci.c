@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 03:36:20 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:18:49 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ static int		precision_in_deci(va_list ap, t_lidx *strs)
 	int		tmplen;
 
 	len = get_precision_len(ap, strs);
-	if (len == 0)
-		return (len);
 	va_copy(cp_ap, ap);
 	tmplen = get_nbr_len(cp_ap, strs, 10);
 	if (len < tmplen)

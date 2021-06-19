@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:22:43 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 14:33:26 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/19 20:34:30 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ static	int	print_chrs(va_list ap, t_lidx *strs)
 
 static	int	print_args(va_list ap, t_lidx *strs, t_ull total_len)
 {
-	int idx;
-	int len;
+	int 	idx;
+	int 	len;
+	size_t	size;
 
 	idx = 0;
 	len = 0;
-	while (idx < (int)ft_strlen(SPECS))
+	size = ft_strlen(SPECS);
+	while ((size_t)idx < size)
 	{
 		if (strs->txt[strs->opts.spec] == SPECS[idx])
 		{
