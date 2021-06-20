@@ -638,64 +638,64 @@ gcc -Wall -Wextra -Werror   -c -o ft_lstmap.o ft_lstmap.c
 ar rc libft.a ft_memset.o ft_memcpy.o ft_bzero.o ft_memccpy.o ft_memchr.o ft_memmove.o ft_memcmp.o ft_strlen.o ft_atoi.o ft_strlcpy.o ft_strchr.o ft_strrchr.o ft_strnstr.o ft_strncmp.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_strlcat.o ft_memset.o ft_memcpy.o ft_bzero.o ft_memccpy.o ft_memchr.o ft_memmove.o ft_memcmp.o ft_strlen.o ft_atoi.o ft_strlcpy.o ft_strchr.o ft_strrchr.o ft_strnstr.o ft_strncmp.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_strlcat.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 cp libft/libft.a libftprintf.a
 ar rc libftprintf.a ft_printf.o ft_print_str.o ft_print_width.o ft_print_char.o ft_print_deci.o ft_print_deci_nbr.o ft_print_sign.o get_flags.o get_asterisk_info.o get_nbr_len.o get_length_flag.o ft_putnbr_char_fd.o ft_putnbr_l_fd.o ft_putnbr_ll_fd.o ft_putnbr_short_fd.o ft_putnbr_uchar_fd.o ft_putnbr_ui_fd.o ft_putnbr_ul_fd.o ft_putnbr_ull_fd.o ft_putnbr_ushort_fd.o ft_putnbr_abs_fd.o ft_putstr_uft_fd.o go_print.o lsts.o parse.o ft_utflen.o ft_print_hash.o ft_print_hexa.o ft_print_hexa_nbr.o ft_putnbr_uchar_hexa_fd.o ft_putnbr_ui_hexa_fd.o ft_putnbr_ul_hexa_fd.o ft_putnbr_ull_hexa_fd.o ft_putnbr_ushort_hexa_fd.o ft_handle_n_spec.o get_byte.o ft_split_for_pf.o is_zero.o 
-1 [0x7ffee899d8e0]18					      |	1 [0x7ffedffea8e0]18
-1.1 [0x7ffee899d8e0]20					      |	1.1 [0x7ffedffea8e0]20
-3 ! [0x7ffee899d8e0]20					      |	3 ! [0x7ffedffea8e0]20
-3.4 ![0x7ffee899d8e0]21					      |	3.4 ![0x7ffedffea8e0]21
-5 [0x7ffee899d8e0]18					      |	5 [0x7ffedffea8e0]18
-10 [0x7ffee899d8e0                                            |	10 [0x7ffedffea8e0                                           
-10 [0x7ffee899d8e0]19					      |	10 [0x7ffedffea8e0]19
-10 [0x7ffee899d8e0]19					      |	10 [0x7ffedffea8e0]19
-10 [0x7ffee899d8e0]19					      |	10 [0x7ffedffea8e0]19
-10 [0x7ffee899d8e0]19					      |	10 [0x7ffedffea8e0]19
+1 [0x7ffee22718e0]18					      |	1 [0x7ffeeeead8e0]18
+1.1 [0x7ffee22718e0]20					      |	1.1 [0x7ffeeeead8e0]20
+3 ! [0x7ffee22718e0]20					      |	3 ! [0x7ffeeeead8e0]20
+3.4 ![0x7ffee22718e0]21					      |	3.4 ![0x7ffeeeead8e0]21
+5 [0x7ffee22718e0]18					      |	5 [0x7ffeeeead8e0]18
+10 [0x7ffee22718e0                                            |	10 [0x7ffeeeead8e0                                           
+10 [0x7ffee22718e0]19					      |	10 [0x7ffeeeead8e0]19
+10 [0x7ffee22718e0]19					      |	10 [0x7ffeeeead8e0]19
+10 [0x7ffee22718e0]19					      |	10 [0x7ffeeeead8e0]19
+10 [0x7ffee22718e0]19					      |	10 [0x7ffeeeead8e0]19
 10 [                                                          |	10 [                                                         
 10 [                                                          |	10 [                                                         
-1 [0x7ffee899d8e4]18					      |	1 [0x7ffedffea8e4]18
-1.1 [0x7ffee899d8e4]20					      |	1.1 [0x7ffedffea8e4]20
-3 ! [0x7ffee899d8e4]20					      |	3 ! [0x7ffedffea8e4]20
-3.4 ![0x7ffee899d8e4]21					      |	3.4 ![0x7ffedffea8e4]21
-5 [0x7ffee899d8e4]18					      |	5 [0x7ffedffea8e4]18
-10 [0x7ffee899d8e4                                            |	10 [0x7ffedffea8e4                                           
-10 [0x7ffee899d8e4]19					      |	10 [0x7ffedffea8e4]19
-10 [0x7ffee899d8e4]19					      |	10 [0x7ffedffea8e4]19
-10 [0x7ffee899d8e4]19					      |	10 [0x7ffedffea8e4]19
-10 [0x7ffee899d8e4]19					      |	10 [0x7ffedffea8e4]19
+1 [0x7ffee22718e4]18					      |	1 [0x7ffeeeead8e4]18
+1.1 [0x7ffee22718e4]20					      |	1.1 [0x7ffeeeead8e4]20
+3 ! [0x7ffee22718e4]20					      |	3 ! [0x7ffeeeead8e4]20
+3.4 ![0x7ffee22718e4]21					      |	3.4 ![0x7ffeeeead8e4]21
+5 [0x7ffee22718e4]18					      |	5 [0x7ffeeeead8e4]18
+10 [0x7ffee22718e4                                            |	10 [0x7ffeeeead8e4                                           
+10 [0x7ffee22718e4]19					      |	10 [0x7ffeeeead8e4]19
+10 [0x7ffee22718e4]19					      |	10 [0x7ffeeeead8e4]19
+10 [0x7ffee22718e4]19					      |	10 [0x7ffeeeead8e4]19
+10 [0x7ffee22718e4]19					      |	10 [0x7ffeeeead8e4]19
 10 [                                                          |	10 [                                                         
 10 [                                                          |	10 [                                                         
-1 [0x7ffee899d8e8]18					      |	1 [0x7ffedffea8e8]18
-1.1 [0x7ffee899d8e8]20					      |	1.1 [0x7ffedffea8e8]20
-3 ! [0x7ffee899d8e8]20					      |	3 ! [0x7ffedffea8e8]20
-3.4 ![0x7ffee899d8e8]21					      |	3.4 ![0x7ffedffea8e8]21
-5 [0x7ffee899d8e8]18					      |	5 [0x7ffedffea8e8]18
-10 [0x7ffee899d8e8                                            |	10 [0x7ffedffea8e8                                           
-10 [0x7ffee899d8e8]19					      |	10 [0x7ffedffea8e8]19
-10 [0x7ffee899d8e8]19					      |	10 [0x7ffedffea8e8]19
-10 [0x7ffee899d8e8]19					      |	10 [0x7ffedffea8e8]19
-10 [0x7ffee899d8e8]19					      |	10 [0x7ffedffea8e8]19
+1 [0x7ffee22718e8]18					      |	1 [0x7ffeeeead8e8]18
+1.1 [0x7ffee22718e8]20					      |	1.1 [0x7ffeeeead8e8]20
+3 ! [0x7ffee22718e8]20					      |	3 ! [0x7ffeeeead8e8]20
+3.4 ![0x7ffee22718e8]21					      |	3.4 ![0x7ffeeeead8e8]21
+5 [0x7ffee22718e8]18					      |	5 [0x7ffeeeead8e8]18
+10 [0x7ffee22718e8                                            |	10 [0x7ffeeeead8e8                                           
+10 [0x7ffee22718e8]19					      |	10 [0x7ffeeeead8e8]19
+10 [0x7ffee22718e8]19					      |	10 [0x7ffeeeead8e8]19
+10 [0x7ffee22718e8]19					      |	10 [0x7ffeeeead8e8]19
+10 [0x7ffee22718e8]19					      |	10 [0x7ffeeeead8e8]19
 10 [                                                          |	10 [                                                         
 10 [                                                          |	10 [                                                         
-1 [0x7ffee899d8ec]18					      |	1 [0x7ffedffea8ec]18
-1.1 [0x7ffee899d8ec]20					      |	1.1 [0x7ffedffea8ec]20
-3 ! [0x7ffee899d8ec]20					      |	3 ! [0x7ffedffea8ec]20
-3.4 ![0x7ffee899d8ec]21					      |	3.4 ![0x7ffedffea8ec]21
-5 [0x7ffee899d8ec]18					      |	5 [0x7ffedffea8ec]18
-10 [0x7ffee899d8ec                                            |	10 [0x7ffedffea8ec                                           
-10 [0x7ffee899d8ec]19					      |	10 [0x7ffedffea8ec]19
-10 [0x7ffee899d8ec]19					      |	10 [0x7ffedffea8ec]19
-10 [0x7ffee899d8ec]19					      |	10 [0x7ffedffea8ec]19
-10 [0x7ffee899d8ec]19					      |	10 [0x7ffedffea8ec]19
+1 [0x7ffee22718ec]18					      |	1 [0x7ffeeeead8ec]18
+1.1 [0x7ffee22718ec]20					      |	1.1 [0x7ffeeeead8ec]20
+3 ! [0x7ffee22718ec]20					      |	3 ! [0x7ffeeeead8ec]20
+3.4 ![0x7ffee22718ec]21					      |	3.4 ![0x7ffeeeead8ec]21
+5 [0x7ffee22718ec]18					      |	5 [0x7ffeeeead8ec]18
+10 [0x7ffee22718ec                                            |	10 [0x7ffeeeead8ec                                           
+10 [0x7ffee22718ec]19					      |	10 [0x7ffeeeead8ec]19
+10 [0x7ffee22718ec]19					      |	10 [0x7ffeeeead8ec]19
+10 [0x7ffee22718ec]19					      |	10 [0x7ffeeeead8ec]19
+10 [0x7ffee22718ec]19					      |	10 [0x7ffeeeead8ec]19
 10 [                                                          |	10 [                                                         
 10 [                                                          |	10 [                                                         
-1 [0x7ffee899d8f0]18					      |	1 [0x7ffedffea8f0]18
-1.1 [0x7ffee899d8f0]20					      |	1.1 [0x7ffedffea8f0]20
-3 ! [0x7ffee899d8f0]20					      |	3 ! [0x7ffedffea8f0]20
-3.4 ![0x7ffee899d8f0]21					      |	3.4 ![0x7ffedffea8f0]21
-5 [0x7ffee899d8f0]18					      |	5 [0x7ffedffea8f0]18
-10 [0x7ffee899d8f0                                            |	10 [0x7ffedffea8f0                                           
-10 [0x7ffee899d8f0]19					      |	10 [0x7ffedffea8f0]19
-10 [0x7ffee899d8f0]19					      |	10 [0x7ffedffea8f0]19
-10 [0x7ffee899d8f0]19					      |	10 [0x7ffedffea8f0]19
-10 [0x7ffee899d8f0]19					      |	10 [0x7ffedffea8f0]19
+1 [0x7ffee22718f0]18					      |	1 [0x7ffeeeead8f0]18
+1.1 [0x7ffee22718f0]20					      |	1.1 [0x7ffeeeead8f0]20
+3 ! [0x7ffee22718f0]20					      |	3 ! [0x7ffeeeead8f0]20
+3.4 ![0x7ffee22718f0]21					      |	3.4 ![0x7ffeeeead8f0]21
+5 [0x7ffee22718f0]18					      |	5 [0x7ffeeeead8f0]18
+10 [0x7ffee22718f0                                            |	10 [0x7ffeeeead8f0                                           
+10 [0x7ffee22718f0]19					      |	10 [0x7ffeeeead8f0]19
+10 [0x7ffee22718f0]19					      |	10 [0x7ffeeeead8f0]19
+10 [0x7ffee22718f0]19					      |	10 [0x7ffeeeead8f0]19
+10 [0x7ffee22718f0]19					      |	10 [0x7ffeeeead8f0]19
 10 [                                                          |	10 [                                                         
 10 [                                                          |	10 [                                                         
  							      |
@@ -745,14 +745,3 @@ Test 4194 (notintsubject_o_neg_prec_star_03) : FAILED.$
 $
 #########PFT_2019##########
 ######### printf_lover_v2 ##########
-######### printf-tester ##########
-######### ft_printf_test ##########
-- [OUTPUT] ft_printf("%1.p", NULL)
-   expected: "0x"
-   actual:   "0x "
-
-- [OUTPUT] ft_printf("%1.p", NULL)
-   expected: "0x"
-   actual:   "0x "
-
-######### Test-42 ##########

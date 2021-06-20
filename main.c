@@ -707,5 +707,19 @@ int main()
 	ft_printf("%hi\n", (short)(-32768));
 	ft_printf("%#037lx\n", 22337203685477ul);
 	printf("%#037lx\n", 22337203685477ul);
+	ft_printf("%#5.0X\n", 0);
+	printf("%#5.0X\n", 0);
+	ft_printf("this %#x number", 0);
+	printf("this %#x number", 0);
+	printf("%d",ft_printf("%5p", 0));
+	printf("%d\n",printf("%5p", 0));
+	static int x = 100000;
+	ft_printf("-->|%#-4x|<--\n", x);
+	printf("-->|%#-4x|<--\n", x);
+
+
+
+	ft_printf("-->|%#0*.2x|<--\n", 4, x);
+	printf("-->|%#0*.2x|<--\n", 4, x);
 //	p에서 precision이 0, 포인터 = NULL인 경우
 }
