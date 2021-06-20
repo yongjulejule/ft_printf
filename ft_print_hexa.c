@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/20 20:22:52 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 20:43:33 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,11 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len, int width_len)
 {
 	va_list	cp_ap;
 	int		dgt_len;
-
-	if (!(ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1)) || strs->opts.precision == strs->opts.width)
-		|| ((width_len < 0 || ft_memchr(strs->txt, '-', strs->opts.flags + 1)) && len != 0)
-				|| (strs->txt[strs->opts.spec] == 'p'))
+	
+	width_len = 0;
+	if (ft_memchr(strs->txt, '#', strs->opts.flags + 1) || strs->txt[strs->opts.spec] == 'p')
+		if (!(ft_memchr(strs->txt, '0', (strs->opts.flags + 1)) && strs->opts.precision == strs->opts.width)
+			 || len != 0 || (strs->txt[strs->opts.spec] == 'p'))
 			ft_print_hash(strs, ap);
 	va_copy(cp_ap, ap);
 	dgt_len = get_nbr_len(ap, strs, 16);
