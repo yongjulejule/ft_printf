@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 16:19:37 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 19:26:59 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 10:23:41 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int		ft_split_for_pf(char *format, t_lidx **strs)
 	size = ft_strlen(format);
 	if ((idx = init_split(format, strs)) == -1)
 		return (ERROR_FLAG);
-	while (*(format + idx))
+	while ((size_t)idx < size)
 	{
 		if (format[idx] != '%')
 		{
@@ -113,8 +113,6 @@ int		ft_split_for_pf(char *format, t_lidx **strs)
 				return (ERROR_FLAG);
 			idx += len;
 		}
-		if ((size_t)idx > size)
-			break;
 	}
 	return (SUCCESS_FLAG);
 }

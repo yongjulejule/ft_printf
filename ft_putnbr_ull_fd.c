@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:20:58 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 03:15:10 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 10:39:55 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				ft_dgt_ull_len(t_ull nbr, t_ui base)
 		return (0);
 	if (nbr < 0)
 		nbr *= -1;
-	else if (nbr == 0)
+	if (nbr == 0)
 		return (1);
 	while (nbr)
 	{

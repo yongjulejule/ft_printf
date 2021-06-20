@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 21:38:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 17:36:06 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	int		width_in_hexa(va_list ap, t_lidx *strs)
 	{
 		if (width_len < 0)
 			width_len += 2;
-		else
+		else if (width_len > 0)
 			width_len -= 2;
 	}
 	return (width_len);
@@ -31,27 +31,38 @@ static	int		width_in_hexa(va_list ap, t_lidx *strs)
 static	int		precision_in_hexa(va_list ap, t_lidx *strs)
 {
 	va_list	cp_ap;
+	va_list cp_nbr;
 	int		len;
 	int		tmplen;
+	int		zero_flag;
 
 	len = get_precision_len(ap, strs);
 	va_copy(cp_ap, ap);
+	va_copy(cp_nbr, ap);
+	zero_flag = is_zero_nbr(cp_nbr, strs);
+	if (zero_flag == 0 && len == 0)
+	{
+		strs->info--;
+		return (0);
+	}
 	tmplen = get_nbr_len(cp_ap, strs, 16);
 	if (len < tmplen)
-		len = tmplen;
+		len = tmplen; 
 	va_end(cp_ap);
+	va_end(cp_nbr);
 	return (len);
 }
 
-static	void	print_dgt(va_list ap, t_lidx *strs, int len)
+static	void	print_dgt(va_list ap, t_lidx *strs, int len, int width_len)
 {
 	va_list	cp_ap;
 	int		dgt_len;
 
-	if (!(ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))
-			&& ((strs->opts.precision == strs->opts.width)\
-			|| (strs->txt[strs->opts.spec] == 'p'))))
-		ft_print_hash(strs);
+	if (!(ft_memchr(strs->txt, '0', (size_t)(strs->opts.flags + 1))\
+			|| strs->opts.precision == strs->opts.width) || width_len < 0\
+			|| ft_memchr(strs->txt, '-', strs->opts.flags + 1)
+			|| (strs->txt[strs->opts.spec] == 'p') || len != 0)
+		ft_print_hash(strs, ap);
 	va_copy(cp_ap, ap);
 	dgt_len = get_nbr_len(ap, strs, 16);
 	while (dgt_len < len)
@@ -59,7 +70,8 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len)
 		ft_putchar_fd('0', 1);
 		dgt_len++;
 	}
-	ft_print_hexa_nbr(cp_ap, strs);
+	if (len != 0)
+		ft_print_hexa_nbr(cp_ap, strs);
 	va_end(cp_ap);
 	strs->info += dgt_len;
 }
@@ -73,9 +85,9 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 	precision_len = precision_in_hexa(ap, strs);
 	if (ft_memchr(strs->txt, '-', strs->opts.flags + 1) || width_len < 0)
 	{
+		print_dgt(ap, strs, precision_len, width_len);
 		if (width_len < 0)
 			width_len *= -1;
-		print_dgt(ap, strs, precision_len);
 		ft_print_width(strs, ' ', width_len - precision_len);
 	}
 	else
@@ -83,11 +95,11 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 		if ((ft_memchr(strs->txt, '0', (strs->opts.flags + 1))
 			&& strs->opts.precision == strs->opts.width))
 		{
-			ft_print_hash(strs);
+			ft_print_hash(strs, ap);
 			ft_print_width(strs, '0', width_len - precision_len);
 		}
 		else
 			ft_print_width(strs, ' ', width_len - precision_len);
-		print_dgt(ap, strs, precision_len);
+		print_dgt(ap, strs, precision_len, width_len);
 	}
 }

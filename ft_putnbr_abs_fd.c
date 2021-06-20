@@ -6,11 +6,32 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 20:31:31 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/15 02:30:10 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 11:34:08 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int			ft_dgtlen(int nbr, t_ui base)
+{
+	int cnt;
+
+	cnt = 0;
+	if (base < 2)
+		return (0);
+	if (nbr == INT_MIN)
+		nbr++;
+	if (nbr < 0)
+		nbr *= -1;
+	if (nbr == 0)
+		return (1);
+	while (nbr)
+	{
+		nbr /= base;
+		cnt++;
+	}
+	return (cnt);
+}
 
 static void	make_nbr(int n, int fd)
 {

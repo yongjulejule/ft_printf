@@ -2,11 +2,15 @@
 #include "ft_printf.h"
 #include <locale.h>
 
+int	address;
 int main()
 {
 	setbuf(stdout, NULL);
 	setlocale(LC_ALL, "en_US.UTF-8");
-	int i = 10;
+	char *addheap; 
+	addheap = malloc(4242);
+	int i;
+	i = 20;
 	printf("============================!!!MY PRINTF!!!============================\n");
 	printf("============================This is String!============================\n");
 	ft_printf("MY  : |%*.*s|\n", 100, 5, "hello printf");
@@ -647,4 +651,61 @@ int main()
 	printf("-->|% 0*d|<--\n", -3, d);
 	ft_printf("-->|% 0*d|<--\n", -2, d);
 	printf("-->|% 0*d|<--\n", -2, d);
+	printf("return :%d\n", ft_printf("%b\n"));
+	printf("return :%d\n", printf("%b\n"));
+	printf("return :%d\n", ft_printf("%l\n"));
+	printf("return :%d\n", printf("%l\n"));
+	ft_printf("%0.0d\n", 0);
+	printf("%0.0d\n", 0);
+	ft_printf("%0*.*i\n", 2, -2, 1);
+	printf("%0*.*i\n", 10, -3, 1);
+	printf("============\n");
+	printf("%.*u, %.*x %.*X\n", 0, 0, 0, 0, 0, 0);
+	ft_printf("%.*u, %.*x %.*X\n", 0, 0, 0, 0, 0, 0);
+	address = 10;
+	printf("============addr==========\n");
+	ft_printf("|%p|\n", &address);
+	printf("|%p|\n", &address);
+	ft_printf("|%p|\n", &addheap);
+	printf("%p\n", &addheap);
+	ft_printf("|%5.5p|\n", &addheap);
+	printf("|%5.5p|\n", &addheap);
+	ft_printf("|%*.*p|\n", 5, 5,&addheap);
+	printf("|%*.*p|\n",5, 5 ,&addheap);
+	ft_printf("|%*.*p|\n", 5, 5,NULL);
+	printf("|%*.*p|\n",5, 5 ,NULL);
+	ft_printf("|%.*p|\n", 5,NULL);
+	printf("|%.*p|\n", 5 ,NULL);
+	ft_printf("|%*p|\n",  5,NULL);
+	printf("|%*p|\n", 5 ,NULL);
+	printf("%d", ft_printf("|%p|\n", NULL));
+	printf("%d", printf("|%p|\n", NULL));
+
+	printf("==================TO FIT TESTER================\n");
+	static char	a01;
+	static unsigned char a02;
+	static short a03;
+	static unsigned short a04;
+	static int a05;
+	static unsigned int a06;
+	static long a07;
+	static unsigned long a08;
+	static long long a09;
+	static unsigned long long a10;
+	static char *a11;
+	static void *a12;
+	ft_printf("|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+	printf("|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n|%70p|\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+
+	ft_printf("|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+	printf("|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n|%15p|\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+	ft_printf("  %p    %%    %c    %u    %s    %X  \n", addheap, (char)-1, 33, "abc", NULL);
+	printf("  %p    %%    %c    %u    %s    %X  \n", addheap, (char)-1, 1, "abc", NULL);
+	printf("ORIGIN:");
+	printf("%hi\n", (short)(-32768));
+	printf("MY:");
+	ft_printf("%hi\n", (short)(-32768));
+	ft_printf("%#037lx\n", 22337203685477ul);
+	printf("%#037lx\n", 22337203685477ul);
+//	p에서 precision이 0, 포인터 = NULL인 경우
 }

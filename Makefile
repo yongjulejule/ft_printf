@@ -41,6 +41,7 @@ SRCS = \
 	   ft_handle_n_spec.c\
 	   get_byte.c\
 	   ft_split_for_pf.c\
+	   is_zero.c\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -83,3 +84,9 @@ debug: all clean
 
 leaks: clean
 	$(CC) -g $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
+
+rm_test:
+	rm -rf ft_printf_test pft pft_2019 printf_tester printf_lover_v2 Test-42 tests451 42TESTERS-PRINTF printf-tester
+
+run_test:
+	./tester/tester.sh

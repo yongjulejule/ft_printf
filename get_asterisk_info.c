@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 13:31:14 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 20:47:36 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 13:34:35 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int		get_precision_len(va_list ap, t_lidx *strs)
 		free(lens);
 		lens = NULL;
 	}
+	if (len < 0)
+		strs->opts.width = strs->opts.precision;
 	return (len);
 }

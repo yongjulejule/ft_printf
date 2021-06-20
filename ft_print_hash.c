@@ -6,17 +6,28 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 02:11:16 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 17:12:18 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_hash(t_lidx *strs)
+void	ft_print_hash(t_lidx *strs, va_list ap)
 {
-	if (!ft_memchr(strs->txt, '#', (size_t)(strs->opts.flags + 1)))
-		if (strs->txt[strs->opts.spec] != 'p')
-			return ;
+	va_list	cp_ap;
+	int		nbr;
+
+	if (strs->txt[strs->opts.spec] != 'p')
+	{	
+		va_copy(cp_ap, ap);
+		if (get_length_flag(strs) > 2)
+			nbr = va_arg(cp_ap, t_ull);
+		else
+			nbr = va_arg(cp_ap, t_ui);
+		va_end(cp_ap);
+		if (!ft_memchr(strs->txt, '#', (size_t)(strs->opts.flags + 1)))
+				return ;
+	}
 	if (strs->txt[strs->opts.spec] == 'X')
 		ft_putstr_fd("0X", 1);
 	else

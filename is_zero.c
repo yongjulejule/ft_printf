@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dgtlen_bonus.c                                  :+:      :+:    :+:   */
+/*   is_zero.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 13:51:42 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 03:16:00 by yongjule         ###   ########.fr       */
+/*   Created: 2021/06/20 12:40:57 by yongjule          #+#    #+#             */
+/*   Updated: 2021/06/20 16:22:28 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_dgtlen(int nbr, unsigned int base)
-{
-	int cnt;
+#include "ft_printf.h"
 
-	cnt = 0;
-	if (base < 2)
+int		is_zero_nbr(va_list cp_nbr, t_lidx *strs)
+{
+	t_ll	nbr;
+
+	if (get_length_flag(strs) == 4 || strs->txt[strs->opts.spec] == 'p')
+		nbr = va_arg(cp_nbr, t_ll);
+	else if (get_length_flag(strs) == 3)
+		nbr = va_arg(cp_nbr, long);
+	else
+		nbr = va_arg(cp_nbr, t_ui);
+	if (nbr == 0)
 		return (0);
-	if (nbr < 0)
-		nbr *= -1;
-	else if (nbr == 0)
-		return (1);
-	while (nbr)
-	{
-		nbr /= base;
-		cnt++;
-	}
-	return (cnt);
+	return (1);
 }

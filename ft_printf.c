@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:25:28 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 19:29:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 10:19:14 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int		ft_printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
+	if (*format == '\0')
+		return (0);
 	if (!parsing((char*)format, &strs))
 		return (-1);
 	va_start(ap, format);

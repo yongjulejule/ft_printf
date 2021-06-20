@@ -6,13 +6,14 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 17:31:33 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 17:04:47 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
+# include <limits.h>
 # include "libft/libft.h"
 
 /*
@@ -109,7 +110,7 @@ void			ft_print_char(va_list ap, t_lidx *strs);
 void			ft_print_deci(va_list ap, t_lidx *strs);
 void			ft_print_deci_nbr(va_list ap, t_lidx *strs);
 void			ft_print_hexa(va_list ap, t_lidx *strs);
-void			ft_print_hash(t_lidx *strs);
+void			ft_print_hash(t_lidx *strs, va_list ap);
 void			ft_print_hexa_nbr(va_list ap, t_lidx *strs);
 
 /*
@@ -138,6 +139,7 @@ void			ft_putnbr_ushort_hexa_fd(t_lidx *strs,\
 ** GET SIZE
 */
 
+int				ft_dgtlen(int nbr, t_ui base);
 int				ft_dgt_char_len(char nbr, t_ui base);
 int				ft_dgt_uchar_len(unsigned char nbr, t_ui base);
 int				ft_dgt_l_len(long nbr, t_ui base);
@@ -161,4 +163,5 @@ void			get_ushort_byte(va_list ap, t_ull total_len);
 void			get_ul_byte(va_list ap, t_ull total_len);
 void			get_ull_byte(va_list ap, t_ull total_len);
 void			get_ui_byte(va_list ap, t_ull total_len);
+int				is_zero_nbr(va_list cp_nbr, t_lidx *strs);
 #endif

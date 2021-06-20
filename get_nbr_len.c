@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 00:43:57 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 03:05:49 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/20 16:22:06 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static	int	get_4bit_len(va_list ap, t_lidx *strs, int base)
 		else
 			cnt = ft_dgt_ui_len(va_arg(ap, int), base);
 	}
-	va_end(ap);
 	return (cnt);
 }
 
@@ -46,15 +45,14 @@ static	int	get_8bit_len(va_list ap, t_lidx *strs, int base)
 		if (get_length_flag(strs) == 3)
 			cnt = ft_dgt_l_len(va_arg(ap, long), base);
 		else
-			cnt = ft_dgt_ll_len(va_arg(ap, long), base);
+			cnt = ft_dgt_ll_len(va_arg(ap, t_ll), base);
 	else
 	{
 		if (get_length_flag(strs) == 3)
-			cnt = ft_dgt_ul_len(va_arg(ap, long), base);
+			cnt = ft_dgt_ul_len(va_arg(ap, t_ul), base);
 		else
-			cnt = ft_dgt_ull_len(va_arg(ap, long), base);
+			cnt = ft_dgt_ull_len(va_arg(ap, t_ull), base);
 	}
-	va_end(ap);
 	return (cnt);
 }
 
@@ -62,8 +60,9 @@ int			get_nbr_len(va_list ap, t_lidx *strs, int base)
 {
 	int		cnt;
 
-	if ((strs->opts.length != strs->opts.precision
-			&& strs->txt[strs->opts.precision + 1] == 'l'))
+	if (((strs->opts.length != strs->opts.precision
+			&& strs->txt[strs->opts.precision + 1] == 'l'))\
+			|| strs->txt[strs->opts.spec] == 'p')
 		cnt = get_8bit_len(ap, strs, base);
 	else
 		cnt = get_4bit_len(ap, strs, base);
