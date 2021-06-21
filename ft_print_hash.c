@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:07:09 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/20 19:36:31 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:32:54 by jun              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_hash(t_lidx *strs, va_list ap)
 		else
 			nbr = va_arg(cp_ap, t_ui);
 		va_end(cp_ap);
-		if (!ft_memchr(strs->txt, '#', (size_t)(strs->opts.flags + 1)) || nbr == 0)
+		if (!ft_memchr(strs->txt, '#', (strs->opts.flags + 1)) || nbr == 0)
 				return ;
 	}
 	if (strs->txt[strs->opts.spec] == 'X')

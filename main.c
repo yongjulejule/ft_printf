@@ -717,6 +717,8 @@ int main()
 	ft_printf("-->|%#-4x|<--\n", x);
 	printf("-->|%#-4x|<--\n", x);
 
+	ft_printf("-->|%#*x|<--\n", -4, 0);
+	printf("-->|%#*x|<--\n", -4, 0);
 
 
 	ft_printf("-->|%#0*.2x|<--\n", 4, x);

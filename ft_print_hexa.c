@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/20 20:43:33 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:41:57 by jun              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	int		width_in_hexa(va_list ap, t_lidx *strs)
 
 	width_len = get_width_len(ap, strs);
 	va_copy(cp_ap, ap);
-	if (strs->txt[strs->opts.precision] == '*')
+	if (strs->opts.precision != strs->opts.width && strs->txt[strs->opts.precision] == '*')
 		va_arg(cp_ap, int);
 	if (get_length_flag(strs) > 2)
 		nbr = va_arg(cp_ap, t_ull);
@@ -71,10 +71,6 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len, int width_len)
 	int		dgt_len;
 	
 	width_len = 0;
-	if (ft_memchr(strs->txt, '#', strs->opts.flags + 1) || strs->txt[strs->opts.spec] == 'p')
-		if (!(ft_memchr(strs->txt, '0', (strs->opts.flags + 1)) && strs->opts.precision == strs->opts.width)
-			 || len != 0 || (strs->txt[strs->opts.spec] == 'p'))
-			ft_print_hash(strs, ap);
 	va_copy(cp_ap, ap);
 	dgt_len = get_nbr_len(ap, strs, 16);
 	while (dgt_len < len)
@@ -97,6 +93,7 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 	precision_len = precision_in_hexa(ap, strs);
 	if (ft_memchr(strs->txt, '-', strs->opts.flags + 1) || width_len < 0)
 	{
+		ft_print_hash(strs, ap);
 		print_dgt(ap, strs, precision_len, width_len);
 		if (width_len < 0)
 			width_len *= -1;
@@ -111,7 +108,10 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 			ft_print_width(strs, '0', width_len - precision_len);
 		}
 		else
+		{
 			ft_print_width(strs, ' ', width_len - precision_len);
+			ft_print_hash(strs, ap);
+		}
 		print_dgt(ap, strs, precision_len, width_len);
 	}
 }
