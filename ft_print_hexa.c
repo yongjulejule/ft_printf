@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:28:23 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/21 16:41:57 by jun              ###   ########.fr       */
+/*   Updated: 2021/06/24 10:27:12 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static	int		width_in_hexa(va_list ap, t_lidx *strs)
 
 	width_len = get_width_len(ap, strs);
 	va_copy(cp_ap, ap);
-	if (strs->opts.precision != strs->opts.width && strs->txt[strs->opts.precision] == '*')
+	if (strs->opts.precision != strs->opts.width\
+			&& strs->txt[strs->opts.precision] == '*')
 		va_arg(cp_ap, int);
 	if (get_length_flag(strs) > 2)
 		nbr = va_arg(cp_ap, t_ull);
@@ -69,7 +70,7 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len, int width_len)
 {
 	va_list	cp_ap;
 	int		dgt_len;
-	
+
 	width_len = 0;
 	va_copy(cp_ap, ap);
 	dgt_len = get_nbr_len(ap, strs, 16);
@@ -82,6 +83,23 @@ static	void	print_dgt(va_list ap, t_lidx *strs, int len, int width_len)
 		ft_print_hexa_nbr(cp_ap, strs);
 	va_end(cp_ap);
 	strs->info += dgt_len;
+}
+
+static	void	print_with_width(va_list ap, t_lidx *strs,\
+				int width_len, int precision_len)
+{
+	if ((ft_memchr(strs->txt, '0', (strs->opts.flags + 1))
+				&& strs->opts.precision == strs->opts.width))
+	{
+		ft_print_hash(strs, ap);
+		ft_print_width(strs, '0', width_len - precision_len);
+	}
+	else
+	{
+		ft_print_width(strs, ' ', width_len - precision_len);
+		ft_print_hash(strs, ap);
+	}
+	print_dgt(ap, strs, precision_len, width_len);
 }
 
 void			ft_print_hexa(va_list ap, t_lidx *strs)
@@ -100,18 +118,5 @@ void			ft_print_hexa(va_list ap, t_lidx *strs)
 		ft_print_width(strs, ' ', width_len - precision_len);
 	}
 	else
-	{
-		if ((ft_memchr(strs->txt, '0', (strs->opts.flags + 1))
-					&& strs->opts.precision == strs->opts.width))
-		{
-			ft_print_hash(strs, ap);
-			ft_print_width(strs, '0', width_len - precision_len);
-		}
-		else
-		{
-			ft_print_width(strs, ' ', width_len - precision_len);
-			ft_print_hash(strs, ap);
-		}
-		print_dgt(ap, strs, precision_len, width_len);
-	}
+		print_with_width(ap, strs, width_len, precision_len);
 }

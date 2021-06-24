@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 13:51:00 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 02:02:23 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/24 08:53:16 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	void	move_va(va_list ap, t_lidx *strs)
 			va_arg(ap, int);
 }
 
-void	ft_handle_n_spec(va_list ap, t_lidx *strs, t_ull total_len)
+void			ft_handle_n_spec(va_list ap, t_lidx *strs, t_ull total_len)
 {
 	int	flag;
 

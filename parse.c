@@ -6,38 +6,11 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:12:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 19:35:27 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/24 09:01:25 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//static	int		split_lst(t_lidx **str)
-//{
-//	char	*backup;
-//	t_lidx	*newnode;
-//	t_lidx	*cur;
-//
-//	cur = *str;
-//	while (1)
-//	{
-//		backup = ft_substr((cur->txt), cur->opts.spec + 1, ft_strlen(cur->txt));
-//		if (!backup)
-//			return (ERROR_FLAG);
-//		newnode = ft_lidxnew(backup, IS_NOT_FLAG);
-//		free(backup);
-//		if (!newnode)
-//		{
-//			ft_lidxclear(str, free);
-//			return (ERROR_FLAG);
-//		}
-//		newnode->next = cur->next;
-//		cur->next = newnode;
-//		cur = newnode->next;
-//		if (!cur)
-//			return (SUCCESS_FLAG);
-//	}
-//}
 
 static	int		get_flags(t_lidx **str)
 {

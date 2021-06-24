@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:45:17 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/21 16:15:10 by jun              ###   ########.fr       */
+/*   Updated: 2021/06/24 09:51:37 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct	s_opts
 	int precision;
 	int length;
 	int spec;
-	int	swch;
 }				t_opts;
 
 /*

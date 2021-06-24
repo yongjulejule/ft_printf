@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 16:19:37 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/20 10:23:41 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/24 08:59:55 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static	int	init_split(char *format, t_lidx **strs)
 	return (idx);
 }
 
-int		ft_split_for_pf(char *format, t_lidx **strs)
+int			ft_split_for_pf(char *format, t_lidx **strs)
 {
 	int		idx;
 	int		len;

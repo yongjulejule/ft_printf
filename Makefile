@@ -1,7 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yongjule <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/24 10:57:47 by yongjule          #+#    #+#              #
+#    Updated: 2021/06/24 11:04:48 by yongjule         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-LIB = libft.a
+LIB = libft/libft.a
 LIBDIR = libft
 SRCS = \
 	   ft_printf.c\
@@ -49,18 +61,18 @@ BONUS_SRCS = ${SRCS}\
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-#%.o : %.c
-#	$(CC) -c $(CFLAGS) $< -o $@  -I./ft_printf.h -I./$(LIBDIR)
-
 .PHONY: all
-all: $(NAME) #clean
+all: $(NAME)
+
+.PHONY: bonus
+bonus: $(NAME) 
 
 $(NAME) : $(OBJS) $(LIB)
 	ar rc $@ $(OBJS) 
 
 $(LIB):
 	make -C $(LIBDIR)
-	cp $(LIBDIR)/$(LIB) $(NAME)
+	cp $(LIB) $(NAME)
 
 .PHONY: clean
 clean:
@@ -75,18 +87,11 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
-.PHONY: bonus
-bonus: $(NAME) 
-
+.PHONY: debug
 debug: all clean 
-	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
+	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIB)
 	./a.out
 
-leaks: clean
-	$(CC) -g $(MAIN) $(SRCS) $(LIBDIR)/$(LIB)
-
-rm_test:
-	rm -rf ft_printf_test pft pft_2019 printf_tester printf_lover_v2 Test-42 tests451 42TESTERS-PRINTF printf-tester
-
-run_test:
-	./tester/tester.sh
+.PHONY: leakschk
+leakschk: clean
+	$(CC) -g $(MAIN) $(SRCS) $(LIB)

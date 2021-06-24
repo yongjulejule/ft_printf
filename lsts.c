@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 11:07:30 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/21 16:16:22 by jun              ###   ########.fr       */
+/*   Updated: 2021/06/24 10:50:16 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ void	ft_lidxclear(t_lidx **lst, void (*del)(void*))
 		{
 			*lst = tmp;
 			tmp = tmp->next;
-			if (!((*lst)->txt))
-				del((*lst)->txt);
+			del((*lst)->txt);
 			free(*lst);
 			*lst = NULL;
 			if (tmp->next == NULL)
@@ -60,8 +59,7 @@ void	ft_lidxdelone(t_lidx *lst, void (*del)(void*))
 {
 	if (lst == NULL)
 		return ;
-	if (!(lst->txt))
-		del(lst->txt);
+	del(lst->txt);
 	free(lst);
 	lst = NULL;
 }
@@ -93,6 +91,5 @@ t_lidx	*ft_lidxnew(void *txt, int info)
 	newlst->opts.precision = 0;
 	newlst->opts.length = 0;
 	newlst->opts.spec = 0;
-	newlst->opts.swch = 0;
 	return (newlst);
 }

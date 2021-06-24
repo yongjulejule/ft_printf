@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 14:48:13 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/21 22:18:26 by jun              ###   ########.fr       */
+/*   Updated: 2021/06/24 09:00:37 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	get_ushort_byte(va_list ap, t_ull total_len)
 
 void	get_ul_byte(va_list ap, t_ull total_len)
 {
-		t_ul	*ptr;
+	t_ul	*ptr;
 
 	ptr = va_arg(ap, t_ul *);
 	if (ptr != NULL)

@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 15:15:21 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/19 20:43:50 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/24 10:09:37 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,29 @@ static	void	print_str(va_list ap, t_lidx *strs, int len)
 	}
 }
 
+static	int		precision_in_utf(va_list cp_ap, int len, int *tmplen)
+{
+	wchar_t	*utf_s;
+
+	if (!(utf_s = va_arg(cp_ap, wchar_t*)))
+		utf_s = L"(null)";
+	*tmplen = ft_utf_byte_len(utf_s);
+	if (len > 0 && len < *tmplen)
+		len -= ft_utf_last_len(utf_s, len);
+	return (len);
+}
+
 static	int		precision_in_str(va_list ap, t_lidx *strs)
 {
 	va_list	cp_ap;
-	wchar_t	*utf_s;
 	char	*s;
 	int		len;
 	int		tmplen;
 
 	len = get_precision_len(ap, strs);
 	va_copy(cp_ap, ap);
-	if (get_length_flag(strs) == 3 || get_length_flag(strs) == 4)
-	{
-		if (!(utf_s = va_arg(cp_ap, wchar_t*)))
-			utf_s = L"(null)";
-		tmplen = ft_utf_byte_len(utf_s);
-		if (len > 0 && len <= tmplen)
-			len -= ft_utf_last_len(utf_s, len);
-	}
+	if (get_length_flag(strs) > 2)
+		len = precision_in_utf(cp_ap, len, &tmplen);
 	else
 	{
 		if (!(s = va_arg(cp_ap, char*)))
