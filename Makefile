@@ -6,7 +6,7 @@
 #    By: yongjule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 10:57:47 by yongjule          #+#    #+#              #
-#    Updated: 2021/06/24 11:04:48 by yongjule         ###   ########.fr        #
+#    Updated: 2021/06/24 11:15:05 by yongjule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,10 +88,10 @@ fclean: clean
 re: fclean all
 
 .PHONY: debug
-debug: all clean 
-	$(CC) -g3 -fsanitize=address $(MAIN) $(SRCS) $(LIB)
+debug: all 
+	$(CC) -g3 -fsanitize=address $(MAIN) $(NAME) $(LIB)
 	./a.out
 
 .PHONY: leakschk
 leakschk: clean
-	$(CC) -g $(MAIN) $(SRCS) $(LIB)
+	$(CC) -g $(MAIN) $(NAME) $(LIB)
