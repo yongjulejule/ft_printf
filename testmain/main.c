@@ -28,8 +28,8 @@ int main()
 	ft_printf("MY  : |%*s|\n", 100, "hello printf");
 	printf("LIB : |%*s|\n", 100, "hello printf");
 	printf("============================This is WString!============================\n");
-	ft_printf("MY  : |%100ls|\n", L"🤯🙃🙃🙃🙃🙃");
-	printf("LIB : |%100ls|\n", L"🤯🙃🙃🙃🙃🙃");
+	ft_printf("MY  : |%100lls|\n", L"🤯🙃🙃🙃🙃🙃");
+	printf("LIB : |%100lls|\n", L"🤯🙃🙃🙃🙃🙃");
 	ft_printf("MY  : |%100.4ls|\n", L"🤯🙃🙃🙃🙃🙃");
 	printf("LIB : |%100.4ls|\n", L"🤯🙃🙃🙃🙃🙃");
 	ft_printf("MY  : |%*.4ls|\n",100, L"🤯🙃🙃🙃🙃🙃");
@@ -768,5 +768,5 @@ int main()
 	ft_printf("%d", "asdf");
 	printf("%d", "asdf");
 
-//	while(1){};
+	while(1){};
 }

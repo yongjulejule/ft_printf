@@ -6,7 +6,7 @@
 /*   By: yongjule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:25:28 by yongjule          #+#    #+#             */
-/*   Updated: 2021/06/20 10:19:14 by yongjule         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:45:33 by yongjule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	len = go_print(ap, strs);
 	va_end(ap);
-	ft_lidxclear(&strs, free);
 	return (len);
 }
